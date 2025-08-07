@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+
+    }
+    .header {
+        display: block;
+        background-color: aqua;
+    }
+    form {
+        width: 600px;
+        height: 600px;
+        background-color: #e2ff57;
+
+    }
+    .row {
+        width: 100%;
+    }
+    .box1 {
+        float: left;
+        width: 25%;
+        margin-top: 10px;
+    }
+    .box2 {
+        float: left;
+        width: 75%;
+        margin-top: 10px;
+    }
+</style>
+<body>
+<div class="container">
+    <form action="#" method="get">
+        <div class="row">
+            <div class="header">
+                <h3>Đăng ký học viên</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box1">
+                <label for="fullname" >Họ và tên</label>
+            </div>
+            <div class="box2">
+                <input id="fullname" type="text" name="fullname">
+            </div>
+        </div>
+        <div class="row">
+            <div class="box1">
+                <label for="brithday" >Ngày sinh</label>
+            </div>
+            <div class="box2">
+                <input id="brithday" type="text" name="brithday">
+            </div>
+        </div>
+        <div class="row">
+            <div class="box1">
+                <span> Giới tính</span>
+            </div>
+            <div class="box2">
+                <input id="male" type="radio" name="gender" value="male">
+                <label for="male" >Nam</label>
+                <input id="female" type="radio" name="gender" value="female">
+                <label for="female" >Nữ</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box1">
+                <label for="address" >Địa chỉ</label>
+            </div>
+            <div class="box2">
+                <textarea name="address" id="address" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box1">
+                <label for="class" >Lớp</label>
+            </div>
+            <div class="box2">
+                <select name="class" id="class">
+                    <option value="  ">-chọn lớp-</option>
+                    <option value="1" >1</option>
+                    <option value="2" >2</option>
+                    <option value="3" >3</option>
+                    <option value="4" >4</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box1">
+                <label for="email" >Email</label>
+            </div>
+            <div class="box2">
+                <input id="email" type="text" name="email">
+            </div>
+        </div>
+        <div class="row">
+            <div class="box1">
+                <label for="tel" >Số điện thoại</label>
+            </div>
+            <div class="box2">
+                <input id="tel" type="text" name="tel">
+            </div>
+        </div>
+        <div class="row">
+            <div style="padding-left: 150px; margin-top: 10px;">
+                <input type="submit" name="submit" value="Đăng ký">
+                <input type="reset" name="reset" value="Nhập lại">
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

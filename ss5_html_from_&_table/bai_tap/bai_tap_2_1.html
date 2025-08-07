@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+    form {
+        display: table;
+        width: 600px;
+        height: 200px;
+        background-color: #e2ff57;
+    }
+    .header {
+        background-color: #d61b06;
+        text-align: center ;
+        color: white;
+    }
+    .box {
+        float: left;
+        width: 25%;
+        text-align: right;
+        margin-top: 6px;
+        color: blue;
+        padding-right: 2px;
+    }
+    .box2 {
+        float: left;
+        width: 75%;
+        margin-top: 6px;
+    }
+    .box3{
+        padding-left: 150px;
+    }
+    .row {
+        width: 100%;
+        padding: 5px;
+    }
+</style>
+<body>
+<div class="container">
+    <form action="#" method="get">
+        <div class="header">
+            <h3>SỞ THÍCH CỦA BẠN</h3>
+        </div>
+        <div class="row">
+            <div class="box">
+                <label for="name">Họ và tên </label>
+            </div>
+            <div class="box2">
+                <input type="text" id="name" name="fullname">
+            </div>
+        </div>
+        <div class="row">
+            <div class="box"><label for="email">Email</label></div>
+            <div class="box2"><input type="email" id="email" name="email"></div>
+        </div>
+        <div class="row">
+            <div class="box"><span>Sở thích</span></div>
+            <div class="box2">
+                <div class="checkbox">
+                    <input type="checkbox" name="hobby" id="sports">
+                    <label for="sports"> sports</label>
+
+                    <input type="checkbox" name="hobby" id="basketball">
+                    <label for="basketball"> basketball</label>
+
+                    <input type="checkbox" name="hobby" id="music">
+                    <label for="music"> music</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" name="hobby" id="playGame">
+                    <label for="playGame"> playGame</label>
+
+                    <input type="checkbox" name="hobby" id="book">
+                    <label for="book"> book</label>
+
+                    <input type="checkbox" name="hobby" id="film">
+                    <label for="film"> film</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="box3">
+                <input type="submit" value="submit">
+                <input type="reset" value="reset">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
