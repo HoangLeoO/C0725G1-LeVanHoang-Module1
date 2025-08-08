@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <input type="number" id="math" placeholder="Nhập điểm Toán">
+    <span> + </span>
+    <input type="number" id="physics" placeholder="Nhập điểm Lý">
+    <span> + </span>
+    <input type="number" id="chemistry" placeholder="Nhập điểm Hóa">
+    <span> = </span>
+    <input type="button" value="Kết Quả" onclick="agv()">
+</div>
+<script>
+    function agv() {
+        let math = +document.getElementById("math").value;
+        let physics = parseFloat(document.getElementById("physics").value);
+        let chemistry = parseFloat(document.getElementById("chemistry").value);
+        alert("Điểm trung bình 3 môn toán lý hóa : " + (math+physics+chemistry)/3)
+    }
+
+
+</script>
+</body>
+</html>
