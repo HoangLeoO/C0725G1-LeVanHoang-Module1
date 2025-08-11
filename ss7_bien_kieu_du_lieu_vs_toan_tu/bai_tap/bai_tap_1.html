@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h2>Điểm trung bình của sinh viên</h2>
+    <label for="physics">Vật lý</label>
+    <input id="physics" type="text">
+    <label for="chemistry" >Hóa học</label>
+    <input id="chemistry" type="text">
+    <label for="math" >Toán </label>
+    <input id="math" type="text">
+    <input  type="button" value="calculate" onclick="calculate()">
+    <p id="calculate"> Kết quả : </p>
+</div>
+
+<div>
+    <h2>Chuyển đổi độ</h2>
+    <label for="C">Nhập độ C : </label><input id="C" type="text">
+    <input  type="button" value=" Chuyển đổi " onclick="convert()">
+    <p id="convert"> Kết quả : </p>
+</div>
+<div>
+    <h2>Diện tích hình tròn</h2>
+    <label for="radius"> Nhập bán kính hình tròn : </label>
+    <input id="radius" type="text">
+    <button onclick="areaCircle()">Kết quả </button>
+    <p id="areaCircle">Kết quả : </p>
+</div>
+
+<div>
+    <h2>Chu vi hình tròn</h2>
+    <label for="radius1"> Nhập bán kính hình tròn : </label>
+    <input id="radius1" type="text">
+    <button onclick="perimeterCircle()">Kết quả </button>
+    <p id="perimeterCircle">Kết quả : </p>
+</div>
+<script>
+    function calculate() {
+        let math = parseFloat(document.getElementById("math").value) ;
+        let physics = parseFloat(document.getElementById("physics").value);
+        let chemistry = parseFloat(document.getElementById("chemistry").value) ;
+        let average = (math+physics+chemistry)/3 ;
+        document.getElementById("calculate").innerHTML = " Kết quả :" + average ;
+    }
+    function convert() {
+        let C = parseFloat(document.getElementById("C").value);
+        let F = (9*C)/5 + 32 ;
+        document.getElementById("convert").innerHTML = " Kết quả :" + F ;
+    }
+
+    function areaCircle() {
+        let radius = document.getElementById("radius").value;
+        const PI = Math.PI;
+        let areaCircle = PI*(radius^2);
+        document.getElementById("areaCircle").innerHTML = " Kết quả :" + areaCircle ;
+    }
+    function perimeterCircle() {
+        let radius = document.getElementById("radius1").value;
+        const PI = Math.PI;
+        let perimeterCircle = 2*PI*radius;
+        document.getElementById("perimeterCircle").innerHTML = " Kết quả :" + perimeterCircle ;
+    }
+</script>
+</body>
+</html>
