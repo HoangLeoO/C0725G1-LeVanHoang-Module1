@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <input type="text" id="win" >
+    <div>
+        <button id="add" value="+" onclick="nhap1(this.value)"> + </button>
+        <button id="sub" value="-"> - </button>
+        <button id="mul" value="*"> * </button>
+        <button id="div" value="/"> / </button>
+    </div>
+    <div>
+        <button id="one" value="1" onclick="nhap1(this.value)">1</button>
+        <button id="two" value="2" onclick="nhap1(this.value)">2</button>
+        <button id="three" value="3">3</button>
+        <br>
+        <button id="four" value="4">4</button>
+        <button id="five" value="5">5</button>
+        <button id="six" value="6">6</button>
+        <br>
+        <button id="seven" value="7">7</button>
+        <button id="eight" value="8">8</button>
+        <button id="nine" value="9">9</button>
+        <br>
+        <button id="zero" value="0">0</button>
+        <button value=".">.</button>
+        <button onclick="bang()">=</button>
+    </div>
+
+<script>
+
+    function nhap1(kyTu) {
+       document.getElementById("win").value +=kyTu;
+    }
+    function  bang(){
+        let str=document.getElementById("win").value;
+        alert(eval(str))
+    }
+</script>
+</body>
+</html>
