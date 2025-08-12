@@ -1,10 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<input id="month" type="text">
+<button onclick="numDay()">tính số ngày</button>
+<script>
+
+    function numDay(){
+        let month = document.getElementById("month").value;
+
+        switch (month){
+            case "1":
+            case "3":
+            case "5":
+            case "7":
+            case "8":
+            case "10":
+            case "12":
+                alert("Có 31 Ngày ");
+                break;
+            case "2":
+                alert("t28 ngày (năm thường) / 29 ngày (năm nhuận)");
+                break;
+            case "4":
+            case "6":
+            case "9":
+            case "11":
+                alert("Có 30 ngày");
+                break;
+            default:
+                alert("Khong phai thang")
+
+        }
+    }
+
+</script>
 </body>
 </html>

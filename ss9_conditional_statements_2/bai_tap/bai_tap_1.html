@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let height = parseFloat(prompt("Nhap chieu cao : "));
+    let weight = parseFloat(prompt("Nhap can nang : "));
+    let BMI = weight / (height ^ 2);
+
+    if (BMI >= 30.0) {
+        alert("OBESE!" + BMI);
+    } else if (30.0 > BMI && BMI >= 25.0) {
+        alert("OVERWEIGHT!" + BMI);
+    } else if (25.0 > BMI && BMI >= 18.5) {
+        alert("NORMAL!" + BMI);
+    } else {
+        alert("UNDERWEIGHT!" + BMI)
+    }
+
+</script>
 </body>
 </html>

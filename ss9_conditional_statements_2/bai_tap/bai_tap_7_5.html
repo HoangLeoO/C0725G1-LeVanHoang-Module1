@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let input_a = +prompt(" Nhap KT : ");
+    let input_b = +prompt(" Nhap GK : ");
+    let input_c = +prompt(" Nhap CK : ");
+
+    let arv = (input_a+input_b*2+input_c*3)/6
+
+    if (arv >=90){
+        alert("Xep loai gioi " + arv);
+    }else if (arv >= 70){
+        alert("Xep loai kha " + arv);
+    }else if (arv >= 50){
+        alert("Xep loai trung binh " + arv);
+    }else {
+        alert("Xep loai yeu " + arv );
+    }
+
+
+</script>
+</body>
+</html>

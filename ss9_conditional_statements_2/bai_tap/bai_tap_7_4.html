@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let input_a = +prompt(" Nhap a : ");
+    let input_b = +prompt(" Nhap b : ");
+    let input_c = +prompt(" Nhap c : ");
+
+    let number = input_a;
+
+    if(input_a>input_b && input_a>input_c){
+        number = input_a ;
+    }else if(input_b>input_a && input_b>input_c){
+        number = input_b;
+    }else if(input_c>input_a && input_c>input_b){
+        number = input_c;
+    }else {
+        alert(" a = b = c = " + number );
+    }
+    alert("So lon nhat la : " + number)
+</script>
+</body>
+</html>

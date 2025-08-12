@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="ds">Nhap doanh so : </label><input id="ds" type="text">
+<span> X </span>
+<label for="tlhh">Tỷ lệ Hoa Hồng</label><select id="tlhh">
+    <option value="0.05">5%</option>
+    <option value="0.10">10%</option>
+    <option value="0.15">15%</option>
+</select>
+<button onclick="hoa_hong()"> Bang </button>
+<p id="hh">Hoa hồng nhận được : </p>
+<script>
+
+
+    function hoa_hong(){
+        let doanh_so = document.getElementById("ds").value;
+        let ty_le_hoa_hong = document.getElementById("tlhh").value;
+        document.getElementById("hh").innerHTML = "Hoa hồng nhận được :" + doanh_so*ty_le_hoa_hong;
+    }
+</script>
+</body>
+</html>

@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<input id="win" type="text">
+<button id="one" onclick="inputWin(this.value)" value="1">1</button>
+<button id="two" onclick="inputWin(this.value)" value="2">2</button>
+<button id="three" onclick="inputWin(this.value)" value="3">3</button>
+<button id="four" onclick="inputWin(this.value)" value="4">4</button>
+<button id="fine" onclick="inputWin(this.value)" value="5">5</button>
+<button id="six" onclick="inputWin(this.value)" value="6">6</button>
+<button id="seven" onclick="inputWin(this.value)" value="7">7</button>
+<button id="eight" onclick="inputWin(this.value)" value="8">8</button>
+<button id="nine" onclick="inputWin(this.value)" value="9">9</button>
+<button id="zero" onclick="inputWin(this.value)" value="0">0</button>
+<button id="cong" value="+" onclick="inputWin(this.value)">+</button>
+<button value="-" onclick="inputWin(this.value)">-</button>
+<button onclick="bang()">=</button>
+<button type="reset">reset</button>
+<script>
+    let win = document.getElementById("win").value;
+
+    function inputWin(keyWord){
+        win = document.getElementById("win").value+=keyWord;
+        return win;
+    }
+    function bang(){
+        alert(eval(win));
+    }
+</script>
 </body>
 </html>

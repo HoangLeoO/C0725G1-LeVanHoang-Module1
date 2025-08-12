@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let noi_mang = +prompt("so phut noi mang : ");
+    let ngoai_mang = +prompt("so phut ngoai mang : ")
+
+    if(noi_mang > 0 && ngoai_mang > 0) {
+        let tong_cuoc = 25000 + noi_mang * 600 + ngoai_mang * 1200;
+        alert("Tong cuoc : " + tong_cuoc);
+    }else {
+        alert(" bạn chưa nhập số phút nội mạng và ngoại mạng")
+    }
+</script>
+</body>
+</html>
