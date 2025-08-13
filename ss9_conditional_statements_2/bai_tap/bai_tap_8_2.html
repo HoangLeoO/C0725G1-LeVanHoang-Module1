@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>
+    <select id="chuyen_doi">
+        <option value="Feet">feet đổi sang mét</option>
+        <option value="Met">Mét đổi sang feet</option>
+    </select>
+</label>
+<button onclick="chuyenDoi()">Button</button>
+<script>
+
+
+    function chuyenDoi() {
+        let chuyen_doi = document.getElementById("chuyen_doi").value;
+        let number = +prompt("Nhập giá trị cần chuyển đổi :");
+        if(number < 0){
+            alert("Giá trị chuyển đổi phải lớn hơn 0 ")
+            number = +prompt("Nhập giá trị cần chuyển đổi :");
+        }
+        switch (chuyen_doi) {
+            case "Feet":
+                alert("Feet : " + (number * 3.2808));
+                break;
+            case "Met":
+                alert("Met : " + (number / 3.2808));
+                break;
+        }
+    }
+</script>
+</body>
+</html>

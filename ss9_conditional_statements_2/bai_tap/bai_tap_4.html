@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    img {
+        width: 200px;
+        height: 50px;
+    }
+</style>
+<body>
+<img id="img1" src="../img/funny-cat1_part1x1.jpg" onclick="click_img1()">
+<br>
+<img id="img2" src="../img/funny-cat1_part2x1.jpg" onclick="click_img2()">
+<br>
+<img id="img3" src="../img/funny-cat1_part3x1.jpg" onclick="click_img3()">
+<br>
+<img id="img4" src="../img/funny-cat1_part4x1.jpg" onclick="click_img4()">
+<br>
+<img id="img5" src="../img/funny-cat1_part5x1.jpg" onclick="click_img5()">
+
+<script>
+
+
+    let cat1 = "../img/funny-cat1_part1x1.jpg";
+    let cat2 = "../img/funny-cat1_part2x1.jpg";
+    let cat3 = "../img/funny-cat1_part3x1.jpg";
+    let cat4 = "../img/funny-cat1_part4x1.jpg";
+    let cat5 = "../img/funny-cat1_part5x1.jpg";
+
+    let monkey1 = "../img/monkey_part1x1.jpg";
+    let monkey2 = "../img/monkey_part2x1.jpg";
+    let monkey3 = "../img/monkey_part3x1.jpg";
+    let monkey4 = "../img/monkey_part4x1.jpg";
+    let monkey5 = "../img/monkey_part5x1.jpg";
+
+    let panda1 = "../img/panda_swap_part1x1.jpg";
+    let panda2 = "../img/panda_swap_part2x1.jpg";
+    let panda3 = "../img/panda_swap_part3x1.jpg";
+    let panda4 = "../img/panda_swap_part4x1.jpg";
+    let panda5 = "../img/panda_swap_part5x1.jpg";
+
+
+    function click_img1() {
+        let img1 = document.getElementById("img1").getAttribute("src");
+        let random = Math.floor(Math.random() * 3);
+        switch (random) {
+            case 0 :
+                img1 = document.getElementById("img1").src = cat1;
+                break;
+            case 1 :
+                img1 = document.getElementById("img1").src = monkey1;
+                break;
+            case 2 :
+                img1 = document.getElementById("img1").src = panda1;
+                break;
+        }
+        checkImg();
+    }
+
+    function click_img4() {
+        let img4 = document.getElementById("img4").getAttribute("src");
+        let random = Math.floor(Math.random() * 3);
+        switch (random) {
+            case 0 :
+                img4 = document.getElementById("img4").src = cat4;
+                break;
+            case 1 :
+                img4 = document.getElementById("img4").src = monkey4;
+                break;
+            case 2 :
+                img4 = document.getElementById("img4").src = panda4;
+                break;
+        }
+        checkImg();
+    }
+
+    function click_img5() {
+        let img5 = document.getElementById("img5").getAttribute("src");
+        let random = Math.floor(Math.random() * 3);
+        switch (random) {
+            case 0 :
+                img5 = document.getElementById("img5").src = cat5;
+                break;
+            case 1 :
+                img5 = document.getElementById("img5").src = monkey5;
+                break;
+            case 2 :
+                img5 = document.getElementById("img5").src = panda5;
+                break;
+        }
+        checkImg();
+    }
+
+    function click_img2() {
+        let img2 = document.getElementById("img2").getAttribute("src");
+        let random = Math.floor(Math.random() * 3);
+        switch (random) {
+            case 0 :
+                img2 = document.getElementById("img2").src = cat2;
+                break;
+            case 1 :
+                img2 = document.getElementById("img2").src = monkey2;
+                break;
+            case 2 :
+                img2 = document.getElementById("img2").src = panda2;
+                break;
+        }
+        checkImg();
+    }
+
+    function click_img3() {
+        let img3 = document.getElementById("img3").getAttribute("src");
+        let random = getRndInteger(0, 2);
+        switch (random) {
+            case 0 :
+                img3 = document.getElementById("img3").src = cat3;
+                break;
+            case 1 :
+                img3 = document.getElementById("img3").src = monkey3;
+                break;
+            case 2 :
+                img3 = document.getElementById("img3").src = panda3;
+                break;
+        }
+        checkImg();
+    }
+
+    function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    function checkImg() {
+        let check1 = document.getElementById("img1").getAttribute("src");
+        let check2 = document.getElementById("img2").getAttribute("src");
+        let check3 = document.getElementById("img3").getAttribute("src");
+        let check4 = document.getElementById("img4").getAttribute("src");
+        let check5 = document.getElementById("img5").getAttribute("src");
+        if (cat1 === check1 && cat2 === check2 && cat3 === check3 && cat4 === check4 && cat5 === check5) {
+            alert("Bingo!");
+        }
+        if (monkey1 === check1 && monkey2 === check2 && monkey3 === check3 && monkey4 === check4 && monkey5 === check5) {
+            alert("Bingo!");
+        }
+        if (panda1 === check1 && panda2 === check2 && panda3 === check3 && panda4 === check4 && panda5 === check5) {
+            alert("Bingo!");
+        }
+
+
+    }
+
+</script>
+</body>
+</html>

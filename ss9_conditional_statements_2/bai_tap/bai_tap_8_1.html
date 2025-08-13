@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="number">Nhập độ : </label><input id="number" type="text">
+<select id="chuyen_doi">
+    <option value="C">C sang độ F</option>
+    <option value="F">F sang độ C</option>
+</select>
+<button onclick="chuyen_doi_nhiet_do()">Chuyển đổi</button>
+<script>
+
+
+    function chuyen_doi_nhiet_do() {
+        let number_c = parseFloat(document.getElementById("number").value);
+        let chuyen_doi = document.getElementById("chuyen_doi").value;
+        switch (chuyen_doi) {
+            case "C":
+                alert("Nhiệt độ F : " + ((number_c * 9) / 5 + 32));
+                break;
+            case "F":
+                alert("Nhiet do C : " + ((number_c - 32) * 5) / 9);
+                break;
+        }
+    }
+
+
+</script>
+</body>
+</html>

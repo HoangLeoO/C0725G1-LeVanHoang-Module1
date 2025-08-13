@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let soKwh = +prompt("Nhap so Kwh da dung");
+
+    if(soKwh>0 && soKwh <= 50){
+        alert("Tiền điện : " + soKwh*1800);
+    }else if (soKwh <= 100) {
+        alert("Tiền điện : " + soKwh*2000);
+    }else if (soKwh <= 200) {
+        alert("Tiền điện : " + soKwh*2500);
+    }else {
+        alert("Tiền điện : " + soKwh*3000);
+    }
+</script>
+</body>
+</html>

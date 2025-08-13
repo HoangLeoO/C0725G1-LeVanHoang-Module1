@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = +prompt("Nhap canh a : ");
+    let b = +prompt("Nhap canh b : ");
+    let c = +prompt("Nhap canh c :");
+
+    let check = false;
+
+    if (a > 0 && b > 0 && c > 0) {
+        if (a + b > c) {
+            if (b + c > a) {
+                if (c + a > b) {
+                    check = true;
+                }
+            }
+        }
+    }
+    if (check) {
+        alert("La canh  cua mot tam giac ");
+    } else {
+        alert("Khong phai canh cua mot tam giac");
+    }
+</script>
+</body>
+</html>

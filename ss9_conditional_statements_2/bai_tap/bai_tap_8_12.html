@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="vbd">Vốn ban đầu</label><input id="vbd" type="text">
+<label for="lx">Lãi xuất</label><select id="lx">
+    <option value="0.005">0.5%</option>
+    <option value="0.007">0.7%</option>
+    <option value="0.01">1%</option>
+</select>
+<label for="month">Số tháng</label><input id="month" type="text">
+<button type="button" onclick="tinh()">tính lãi</button>
+<p id="tongTien">Tong Tien</p>
+</body>
+<script>
+
+
+    function tinh(){
+        let vbd = parseFloat(document.getElementById("vbd").value);
+        let lx = parseFloat(document.getElementById("lx").value);
+        let month = parseFloat(document.getElementById("month").value);
+        document.getElementById("tongTien").innerHTML = ` ${vbd*(Math.pow((1+lx),month))}`;
+    }
+</script>
+</html>
