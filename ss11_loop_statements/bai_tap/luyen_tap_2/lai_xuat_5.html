@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let first_month1 = +prompt("Nhập tiền gửi : ");
+    let rate1 = +prompt("Nhập lãi xuất hàng tháng : ");
+    let month = +prompt("Nhập số tháng gửi : ");
+
+    let tien_lai_hang_thang = 0 ;
+
+    for (let i = 1; i <= month; i++) {
+        tien_lai_hang_thang = first_month1 + first_month1*(rate1/100);
+        document.writeln(tien_lai_hang_thang);
+        document.writeln(`<br>`);
+        first_month1 = tien_lai_hang_thang;
+    }
+</script>
+</body>
+</html>

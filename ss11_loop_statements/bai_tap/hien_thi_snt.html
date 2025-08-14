@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let countPrime = 0;
+    let number = 2;
+
+    // in ra 20 số nguyên tố đầu tiên
+    while (countPrime < 20) {
+        if (isPrime(number)) {
+            console.log(number);
+            countPrime++;
+        }
+        number++;
+    }
+
+    // hàm kiểm tra số nguyên tố
+    function isPrime(check) {
+        if (check < 2) {
+            return false;
+        }
+
+        for (let i = 2; i < Math.sqrt(check); i++) {
+            if (check % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+</script>
+</body>
+</html>

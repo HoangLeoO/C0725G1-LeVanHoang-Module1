@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <style>
+        form {
+            width: 300px;
+            padding: 10px;
+            background-color: lightgray;
+        }
+
+        div {
+            margin-top: 20px;
+            width: 250px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        h2 {
+            margin-left: 110px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 12px;
+            color: red;
+            margin-top: 0px;
+        }
+
+        button {
+            background-color: gray;
+            border: 1px solid yellow;
+            color: white;
+        }
+
+        div span {
+            color: green;
+        }
+
+        #idCross {
+            color: red;
+        }
+
+        #nameCross {
+            color: red;
+        }
+
+        #ageCross {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <h2>Đăng ký</h2>
+    <div>
+        <label for="id">ID</label>
+        <input id="id" name="id" onblur="checkValidate()"/>
+        <span id="idTick"></span>
+        <span id="idCross"></span>
+    </div>
+    <p id="idError"></p>
+    <div>
+        <label for="name">name</label>
+        <input id="name" name="name" onblur="checkValidate()"/>
+        <span id="nameTick"></span>
+        <span id="nameCross"></span>
+    </div>
+    <p id="nameError"></p>
+    <div>
+        <label for="age">Age</label>
+        <input id="age" name="age" onblur="checkValidate()"/>
+        <span id="ageTick"></span>
+        <span id="ageCross"></span>
+    </div>
+    <p id="ageError"></p>
+    <div style="justify-content: center">
+        <button disabled type="submit" id="btn-save">Save</button>
+    </div>
+</form>
+<script>
+    function checkValidate() {
+
+        let idValid = true;
+            if (document.getElementById("id").value === "") {
+                document.getElementById("idCross").innerHTML = "X";
+                document.getElementById("idError").innerHTML = "Không được để trống";
+                idValid = false;
+            } else {
+                document.getElementById("idTick").innerHTML = "V";
+                document.getElementById("idCross").innerHTML = "";
+                document.getElementById("idError").innerHTML = "";
+            }
+
+            if (document.getElementById("name").value === "") {
+                document.getElementById("nameCross").innerHTML = "X";
+                document.getElementById("nameError").innerHTML = "Không được để trống";
+                idValid = false;
+
+            } else {
+                document.getElementById("nameTick").innerHTML = "V";
+                document.getElementById("nameCross").innerHTML = "";
+                document.getElementById("nameError").innerHTML = "";
+            }
+            if (document.getElementById("age").value === "") {
+                document.getElementById("ageCross").innerHTML = "X";
+                document.getElementById("ageError").innerHTML = "Không được để trống";
+                idValid = false;
+            } else {
+                document.getElementById("ageTick").innerHTML = "V";
+                document.getElementById("ageCross").innerHTML = "";
+                document.getElementById("ageError").innerHTML = "";
+            }
+
+            if (idValid){
+                document.getElementById("btn-save").disabled = false;
+                document.getElementById("btn-save").style.backgroundColor = "yellow";
+            }
+
+    }
+</script>
+</body>
+</html>
