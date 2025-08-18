@@ -1,10 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<button type="button" onclick="menu()">MENU</button>
+
+<script>
+    function menu() {
+        let number;
+        let total = 0;
+        let count1 = 0;
+        let count2 = 0;
+        let count3 = 0;
+        let menu = "";
+        let stt = 1;
+
+        do {
+
+            number = +prompt("---------------Menu---------------\n" +
+
+                "Hãy nhập số để chọn đồ uống \n" +
+                "1.Cafe : 10k \n" +
+                "2.Ca cao : 15k \n" +
+                "3.Nước cam : 20k \n" +
+                "4.Kết thúc.\n" +
+                "---------------Danh sách đã chọn---------------\n" +
+               `${menu}` +
+                "Tổng tiền : " + total);
+
+
+            switch (number) {
+                case 1 :
+                    total = total + 10;
+
+                    if (count1 === 0) {
+                        menu = menu + stt + ".Cafe \n";
+                        stt++
+                        count1 ++;
+                    }
+                    break;
+                case 2 :
+                    total = total + 15;
+
+                    if (count2 === 0) {
+                        menu = menu + stt + ".CaCao \n";
+                        stt++
+                        count2 ++;
+                    }
+                    break;
+
+                case 3 :
+                    total = total + 20;
+
+                    if (count3 === 0) {
+                        menu = menu + stt + ".Nước cam \n";
+                        stt++
+                        count3++;
+                    }
+                    break;
+                case 4 :
+                    alert("---------------Danh sách đã chọn---------------\n" +
+                        `${menu}` +
+                        "Tổng tiền : " + total
+                    )
+                    break;
+                default :
+                    alert("Món không có trong MENU");
+            }
+        } while (0 < number && number < 4);
+    }
+
+
+</script>
 </body>
 </html>
