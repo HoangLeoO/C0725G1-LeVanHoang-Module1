@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    // Bai 1
+    // let myColor = ["Red", "Green", "White", "Black"];
+    // console.log("Bai tap 1 : " + myColor.toString());
+
+
+    // Bai2
+    // let numbers = prompt("Nhap vao cac so bat ky ");
+    // let new_array = [];
+    // for (let i = 0; i < numbers.length; i++) {
+    //     new_array[i] = +numbers.at(i);
+    // }
+    // let new_array2 = [];
+    // for (let i = 0; i < new_array.length; i++) {
+    //     if (new_array[i] % 2 === 0 && new_array[i + 1] % 2 === 0) {
+    //         new_array2[i] = new_array[i] + "-";
+    //     } else {
+    //         new_array2[i] = new_array[i];
+    //     }
+    // }
+    // console.log(new_array2.join(""));
+
+    // Bai3
+
+    let text1 = prompt("Nhap : ");
+    let text2 = new Array(text1.length);
+    for (let i = 0 ; i < text1.length; i++){
+        if(text1.at(i) !== text1.at(i).toUpperCase()){
+            text2[i] = text1.at(i).toUpperCase();
+        }else {
+            text2[i] = text1.at(i).toLowerCase();
+        }
+    }
+    alert(text2.join(""));
+
+    // let text2 = "";
+    // for (let i = 0 ; i < string_text.length ;i++){
+    //     if(string_text.at(i) !== string_text.at(i).toUpperCase()) {
+    //         text2+=string_text.at(i).toUpperCase();
+    //     }else {
+    //         text2+=string_text.at(i).toLowerCase();
+    //     }
+    // }
+    // alert(text2);
+
+</script>
+</body>
+</html>

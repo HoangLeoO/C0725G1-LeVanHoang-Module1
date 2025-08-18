@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let length_array = +prompt("Độ dài của mảng :  ")
+    let numbers = new Array(length_array);
+    let i = 0;
+    do {
+        numbers[i] = +prompt(" Nhập số nguyên thứ : " + [i+1]);
+        i++;
+    }while (i<numbers.length);
+
+    let length_array2 = +prompt("Độ dài của mảng :  ")
+    let numbers2 = new Array(length_array2);
+    let j = 0;
+    do {
+        numbers2[j] = +prompt(" Nhập số nguyên thứ : " + [j+1]);
+        j++;
+    }while (j<numbers2.length);
+
+    let c = new Array(length_array+length_array2);
+
+    c = numbers.concat(numbers2);
+    alert(c.join("-"));
+
+
+</script>
+</body>
+</html>

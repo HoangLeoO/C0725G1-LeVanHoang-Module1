@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let length_array = +prompt("Độ dài của mảng :  ")
+    let numbers = new Array(length_array);
+    let i = 0;
+    do {
+        numbers[i] = +prompt(" Nhập số nguyên thứ : " + [i+1]);
+        i++;
+    }while (i<numbers.length);
+
+
+    let max = numbers[0];
+    let index = 0 ;
+    let average = 0 ;
+    let sum = numbers[0] ;
+
+    for (let j = 1 ; j < numbers.length ; j++){
+        if (numbers[j] > max){
+            max = numbers[j];
+            index = j ;
+        }
+        sum +=(numbers[j]);
+    }
+
+    alert( "Max  = " + max + " index " +index + " Gia tri trung binh " + (sum/length_array));
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let length_array = +prompt("Độ dài của mảng :  ")
+    let char = new Array(length_array);
+    let i = 0;
+    do {
+        char[i] = prompt(" Ký tự : " + [i+1]);
+        i++;
+    }while (i<char.length);
+
+    let count = 0 ;
+    for( let i = 0 ; i < char.length ; i ++){
+        if(!isNaN(+char[i])){
+            count++;
+        }
+    }
+
+    alert("Có " + count + " ký tự số ");
+
+</script>
+</body>
+</html>

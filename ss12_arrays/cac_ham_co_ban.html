@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let myColor = ["Red", "Green", "White", "Black"];
+
+
+    // Phương thức length() trả về độ dài của mảng
+    let size = myColor.length;
+
+    // Phương thức toString() trả về một chuỗi từ các giá trị của mảng
+    let new_array = myColor.toString();
+
+    // Phương thức at() lấy một phần tử bằng index
+    let color = myColor.at(1);
+
+    //  Phương thức join() trả về các phần tử thành một chuỗi được găng cách bằng dâu "-"
+    let newColor = myColor.join("-");
+
+    // Phương thức pop Xóa 1 phần tử cuối mảng
+    console.log(myColor.pop());
+
+    // Phuowng thức push() thêm 1 phần tử cuối mảng
+    console.log(myColor.push("Kiwi"));
+
+    // Phương thức shift() Xóa 1 phần tử đầu mảng
+    console.log(myColor.shift());
+
+    // Phương thức unshift() Thêm 1 phần tử đầu mảng
+    console.log(myColor.unshift("Kiwi2"));
+
+    let myGirls = ["Cecilie", "Lone"];
+    let myBoys = ["Emil", "Tobias", "Linus"];
+
+    // Phương thức concat() nối 2 mảng
+
+    // nối 2 mảng
+    let myChildren = myGirls.concat(myBoys);
+    // nối  mảng voi 1 phan tu
+    let myBoy = myBoys.concat("Peter");
+
+    // Phương thức copyWithin() copy và ghi đè tại vị trí index
+
+    // tham so dau tien xac dinh index bi ghi de len
+    // tham so thu 2 xac dinh gia tri copy
+    let fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.copyWithin(2, 0);
+    // tham so dau tien xac dinh index bi ghe de len
+    // tham so thu 2 xac dinh index bi copy
+    // tham so thu 3 xac dinh so luong phan tu lien ke nhau bi copy
+    let fruits2 = ["Banana", "Orange", "Apple", "Mango", "Kiwi", "Papaya"];
+    fruits2.copyWithin(2, 0, 2);
+
+    // Phương thức flatI() tạo ra mảng 1 chiều từ array 2 chiều
+
+    // biến mảng 2 chiều thành mảng 1 chiều
+    let myArr = [[1, 2], [3, 4], [5, 6]];
+    let newArr = myArr.flat();
+    console.log(newArr)
+
+    // Phương thức splice() thêm hoặc xóa phần tử ở vị trí bất  kì
+
+    //Tham số đầu tiên xác định index các phần tử được thêm vào
+    //Tham số 2 xác định số phần tử được loại bỏ
+    //thma số 3 xác đinh các phần tử được thêm vào
+    let fruits3 = ["Banana", "Orange", "Apple", "Mango"];
+    fruits3.splice(2, 0, "Lemon", "Kiwi");
+
+    // tham so dau tien xac dinh index phan tu bi xoa
+    // tham so thu 2 xac dinh so luong phan tu bi xoa
+    let fruits4 = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.splice(0, 1);
+
+    // Phương thức slice() tạo ra một mảng mới bắt đầu từ index mảng cũ
+    const fruits5 = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+    const citrus = fruits.slice(1);
+
+</script>
+</body>
+</html>

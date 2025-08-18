@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let length_array = +prompt("Độ dài của mảng :  ")
+    let numbers = new Array(length_array);
+    let i = 0;
+    do {
+        numbers[i] = +prompt(" Nhập số nguyên thứ : " + [i + 1]);
+        i++;
+    } while (i < numbers.length);
+
+
+    let numbers2 = [];
+    let index_numbers2 = 0;
+    for (let j = numbers.length - 1; j >= 0; j--) {
+        numbers2[index_numbers2] = numbers[j];
+        index_numbers2++;
+    }
+    alert(numbers2.join("-"));
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+    let row_array = +prompt("Độ dài của dòng :  ");
+    let col_array = +prompt("Độ dài của cột : ");
+    let arrays = [];
+
+    for( let i = 0 ;  i < row_array ;  i++){
+        for (let j = 0 ; j < col_array; j++){
+            arrays[i] = new Array(col_array);
+        }
+    }
+
+    for( let i = 0 ;  i < row_array ;  i++){
+        for (let j = 0 ; j < col_array; j++){
+            arrays[i][j] = i ;
+        }
+    }
+
+    alert(arrays.join("-"));
+
+</script>
+</body>
+</html>

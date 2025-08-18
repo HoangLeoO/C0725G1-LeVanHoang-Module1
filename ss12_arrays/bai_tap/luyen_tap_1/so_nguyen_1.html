@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numbers = new Array(10);
+    let count = 0 ;
+    for (let i = 0; i < numbers.length; i++) {
+        numbers[i] = prompt("Nhập  số thứ : " + [i + 1]);
+        if(numbers[i] >= 10) {
+            count++;
+            console.log("Số " + numbers[i] + " lớp hơn hoặc bằng 10 " + count)
+        }
+    }
+
+</script>
+</body>
+</html>

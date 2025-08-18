@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+    let x = [-3, 5, 1, 3, 2, 10];
+    // let e = "<hr/>";
+    // for (let i = 0; i < x.length; i++) {
+    //     e += "Element " + i + " = " + x[i] + "<br/>";
+    //     document.getElementById("result").innerHTML = e;
+    // }
+
+    let new_array = [];
+    let index_array = 0;
+
+    for (let i = x.length - 1; i >= 0; i--) {
+        console.log("X = " + x[i]);
+        new_array[index_array] = x[i];
+        console.log("New arrays = " + new_array[index_array]);
+        index_array++;
+
+    }
+
+
+</script>
+</body>
+</html>

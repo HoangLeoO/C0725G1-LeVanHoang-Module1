@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let length_array = +prompt("Độ dài của mảng :  ")
+    let numbers = new Array(length_array);
+    let check = false;
+    let i = 0;
+    do {
+        numbers[i] = +prompt(" Nhập số nguyên thứ : " + [i+1]);
+        i++;
+    }while (i<numbers.length);
+
+    let v = +prompt(" Phần tử V ");
+    for (let i = 0 ; i < numbers.length ; i++){
+        if(v === numbers[i]){
+            check = true;
+        }
+    }
+
+
+    if(check){
+        alert("V is in the array");
+    }else {
+        alert("V is not in the array");
+    }
+</script>
+</body>
+</html>

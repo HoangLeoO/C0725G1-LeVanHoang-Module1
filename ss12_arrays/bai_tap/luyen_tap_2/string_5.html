@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let string = prompt("String :  ")
+    let array_char = new Array(string.length);
+
+    for (let i = 0 ; i<string.length;i++){
+        array_char[i] = string.at(i);
+    }
+
+    let string2 = prompt("String2 :  ")
+    let array_char2 = new Array(string2.length);
+
+    for (let i = 0 ; i<string2.length;i++){
+        array_char2[i] = string2.at(i);
+    }
+
+    let check = true;
+    if (array_char.length === array_char2.length){
+        for (let i = 0 ; i < array_char.length ; i++ ){
+            if (array_char[i] !== array_char2[i]){
+                check = false ;
+                break;
+            }
+        }
+    }
+
+    if (check){
+        alert(array_char.join("") + " = " + array_char2.join("") );
+    }else {
+        alert(array_char.join("") + " != " + array_char2.join("") );
+    }
+
+
+</script>
+</body>
+</html>

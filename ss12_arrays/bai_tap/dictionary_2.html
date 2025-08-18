@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="textVN">Tiếng Việt</label><input type="text" id="textVN">
+<label for="textEN">Tiếng Anh</label><input type="text" id="textEN">
+<button type="button" onclick="dictionary()">Dịch</button>
+
+<script>
+    let textVN = ["Một","Hai","Ba"];
+    let textEN = ["One","Two","Three"];
+
+    function dictionary() {
+        let search = document.getElementById("textVN").value
+        if(textVN.includes(search)){
+            document.getElementById("textEN").value = textEN[textVN.indexOf(search)];
+        }else {
+            alert("Không tìm thấy !")
+            document.getElementById("textVN").value = "";
+            document.getElementById("textEN").value = "";
+        }
+    }
+</script>
+</body>
+</html>

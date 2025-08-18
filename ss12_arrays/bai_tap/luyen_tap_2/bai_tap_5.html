@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let string = prompt("String :  ")
+    let array_char = new Array(string.length);
+
+    for (let i = 0 ; i<string.length;i++){
+        array_char[i] = string.at(i);
+    }
+
+    for (let i = 0 ; i<string.length;i++){
+       if (array_char[i] === '-'){
+           array_char[i] = '_';
+       }
+    }
+    alert(array_char.join(""));
+</script>
+</body>
+</html>

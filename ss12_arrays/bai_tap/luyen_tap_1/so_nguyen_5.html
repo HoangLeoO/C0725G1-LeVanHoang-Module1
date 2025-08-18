@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let length_array = +prompt("Độ dài của mảng :  ")
+    let numbers = new Array(length_array);
+    let i = 0;
+    do {
+        numbers[i] = +prompt(" Nhập số nguyên thứ : " + [i+1]);
+        i++;
+    }while (i<numbers.length);
+    let count = 0 ;
+    for ( let j = 0 ; j < numbers.length ; j++){
+        if (numbers[j] < 0 ){
+            count++;
+        }
+    }
+    alert(numbers.toString() + " có " + count + " số âm  ");
+</script>
+</body>
+</html>
