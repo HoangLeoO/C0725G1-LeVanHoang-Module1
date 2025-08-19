@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table {
+        width: 600px;
+        border-collapse: collapse;
+        text-align: center;
+    }
+
+    table tr, td {
+        border: 1px solid black;
+    }
+
+    td {
+        width: 20px;
+    }
+</style>
+<body>
+<br>
+<div id="result"></div>
+<button onclick="start()">Game Mới</button>
+<script>
+    let arrays = [];
+    let size = 10;
+    start();
+
+    function start() {
+        for (let i = 0; i < size; i++) {
+            arrays[i] = new Array(size);
+            for (let j = 0; j < arrays[i].length; j++) {
+                // arrays[i][j] = `${i} , ${j}`;
+                arrays[i][j] = `-`;
+            }
+        }
+        display();
+    }
+
+    function display() {
+        let sout = '<table>';
+        for (let i = 0; i < size; i++) {
+            sout += "<tr>";
+            for (let j = 0; j < arrays[i].length; j++) {
+                sout += `<td onclick="click_box(${i},${j})" id="item${i}_${j}">${arrays[i][j]}</td>`;
+            }
+            sout += "</tr>";
+        }
+        sout += `</table>`;
+        document.getElementById("result").innerHTML = sout;
+    }
+
+    let isPlayer = 0;
+
+    function click_box(i, j) {
+        if (arrays[i][j] === "-") {
+            if (isPlayer) {
+                arrays[i][j] = "X";
+                isPlayer = !isPlayer;
+            } else {
+                arrays[i][j] = "O";
+                isPlayer = !isPlayer;
+            }
+        } else {
+            alert(" Ô này đã được đánh !!");
+        }
+        display();
+        check();
+    }
+
+    function check() {
+        for (let i = 0; i <= arrays.length; i++) {
+            for (let j = 0; j <= arrays[i].length; j++) {
+                if (arrays[i][j] !== "-" && arrays[i][j] !== undefined) {
+                    let val = arrays[i][j];
+                    if (
+                        val === arrays[i][j + 1] &&
+                        val === arrays[i][j + 2] &&
+                        val === arrays[i][j + 3] &&
+                        val === arrays[i][j + 4]) {
+                        document.getElementById(`item${i}_${j}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i}_${j+1}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i}_${j+2}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i}_${j+3}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i}_${j+4}`).style.backgroundColor = "red";
+                        alert("Bingo Dọc !");
+                        break;
+                    } else if (
+                        val === arrays[i + 1][j] &&
+                        val === arrays[i + 2][j] &&
+                        val === arrays[i + 3][j] &&
+                        val === arrays[i + 4][j]) {
+                        alert("Bingo Ngang !");
+                        document.getElementById(`item${i}_${j}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i+1}_${j}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i+2}_${j}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i+3}_${j}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i+4}_${j}`).style.backgroundColor = "red";
+
+                        break;
+                    } else if (
+                        val === arrays[i + 1][j + 1] &&
+                        val === arrays[i + 2][j + 2] &&
+                        val === arrays[i + 3][j + 3] &&
+                        val === arrays[i + 4][j + 4]) {
+                        alert("Bingo Chéo !");
+                        document.getElementById(`item${i}_${j}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i+1}_${j+1}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i+2}_${j+2}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i+3}_${j+3}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i+4}_${j+4}`).style.backgroundColor = "red";
+                        break;
+                    } else if (
+                        val === arrays[i + 1][j - 1] &&
+                        val === arrays[i + 2][j - 2] &&
+                        val === arrays[i + 3][j - 3] &&
+                        val === arrays[i + 4][j - 4]) {
+                        document.getElementById(`item${i}_${j}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i+1}_${j-1}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i+2}_${j-2}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i+3}_${j-3}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i+4}_${j-4}`).style.backgroundColor = "red";
+                        alert("Bingo Chéo !");
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+
+</script>
+</body>
+</html>
