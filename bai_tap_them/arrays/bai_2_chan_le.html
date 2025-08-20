@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let length_array = +prompt("Độ dài của mảng :  ")
+    let numbers = new Array(length_array);
+    let i = 0;
+    do {
+        numbers[i] = +prompt(" Nhập số nguyên thứ : " + [i + 1]);
+        i++;
+    } while (i < numbers.length);
+
+    function checkArray(arr){
+        let check = true;
+        if (arr.length % 2 === 0) {
+            let arr1 = [];
+            let arr2 = [];
+            arr1 = arr.slice(0, (arr.length / 2));
+            arr2 = arr.slice((arr.length / 2), arr.length);
+            alert(arr1.toString() + "  " + arr2.toString());
+            for (let i = 0; i < arr.length / 2; i++) {
+                if (arr1[i] !== Math.sqrt(arr2[i])) {
+                    check = false;
+                    break;
+                }
+            }
+        } else {
+            check = false;
+        }
+        return check;
+    }
+
+    if(checkArray(numbers)){
+        alert(" Giá trị 1/2 phần tử đầu bằng căn giá trị 1/2 phần tử sau ");
+    }else {
+        alert("KHông bằng");
+    }
+</script>
+</body>
+</html>

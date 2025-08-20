@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+    let length_array = +prompt("Độ dài của mảng :  ")
+    let numbers = new Array(length_array);
+    let i = 0;
+    do {
+        numbers[i] = +prompt(" Nhập số nguyên thứ : " + [i + 1]);
+        i++;
+    } while (i < numbers.length);
+
+    let count1 = 0 ;
+    let count2 = 0 ;
+
+    for (let i = 0 ; i < numbers.length ; i++){
+        if (i%2===0){
+            count1++;
+        }else {
+            count2++;
+        }
+    }
+
+    if (count1 === count2 && count1 !== 0 && count2 !== 0){
+        alert("OK!!");
+    }else {
+        alert("NO!!");
+    }
+
+</script>
+</body>
+</html>

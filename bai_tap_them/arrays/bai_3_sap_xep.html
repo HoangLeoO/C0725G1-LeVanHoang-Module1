@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let size = +prompt("Độ dài của mảng :  ")
+    let numbers = new Array(size);
+    let i = 0;
+    do {
+        numbers[i] = +prompt(" Nhập số nguyên thứ : " + [i + 1]);
+        i++;
+    } while (i < numbers.length);
+
+    function sortArrayIncrease(a, b) {
+        return a - b;
+    }
+
+    function sortArrayDecrease(a, b) {
+        return b - a;
+    }
+
+
+    function checkArr(arr) {
+        let arr1 = arr.toSorted(sortArrayIncrease);
+        let arr2 = arr.toSorted(sortArrayDecrease);
+        let check = false ;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === arr1[i] || arr[i] === arr2[i]){
+                check = true ;
+            }
+        }
+        alert(arr.toString() + '\n' + arr1.toString() + '\n' + arr2.toString())
+        return check;
+    }
+
+    checkArr(numbers);
+    if (checkArr(numbers)) {
+        alert("OK!!");
+    } else {
+        alert("NO!!");
+    }
+</script>
+</body>
+</html>

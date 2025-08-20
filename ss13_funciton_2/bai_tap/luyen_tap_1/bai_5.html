@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let text_stars = prompt(" Nhập tên ngôi  sao :  ")
+    let stars = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let constellations = ["Ursa Minor", "Taurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+    function check_constellation(text_stars) {
+        let check = true;
+        for (let i = 0; i < stars.length; i++) {
+            if (text_stars === stars[i]) {
+                alert(" Tên chòm sao tương ứng là : " + constellations[i]);
+                check = false;
+                break;
+            }
+        }
+        if (check){
+            alert("NO!!!");
+        }
+    }
+
+    check_constellation(text_stars);
+
+
+</script>
+</body>
+</html>

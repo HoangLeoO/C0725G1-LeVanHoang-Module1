@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function check_char(arr, key) {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === key) {
+                console.log(arr.includes(key));
+                console.log(arr.indexOf(key));
+                count++;
+            }
+        }
+        return count;
+    }
+
+    let arrays = ["a", "b", "c", "d", "a", "a"];
+    let a = "a";
+    if (check_char(arrays, a) > 0) {
+        alert(" ký tự được lap " + check_char(arrays, a) + " lan");
+    } else {
+        alert("NO!");
+    }
+
+</script>
+</body>
+</html>

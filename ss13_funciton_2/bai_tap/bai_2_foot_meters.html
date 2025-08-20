@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="input_text" >
+<select id="to">
+    <option value="meter">meter</option>
+    <option value="foot">foot</option>
+</select>
+<button type="button" id="button_to">Chuyển đổi</button>
+<p id="result"></p>
+<script>
+
+    document.getElementById("button_to").addEventListener("click",select_to);
+    function select_to(){
+        let val = document.getElementById("to").value;
+        let input_text = document.getElementById("input_text").value;
+        if (val === "meter"){
+           return document.getElementById("result").innerText = footToMeter(input_text);
+        }else if (val === "foot"){
+            return document.getElementById("result").innerText = meterToFoot(input_text);
+        }
+    }
+
+    function footToMeter(foot){
+        return 0.305 * foot;
+    }
+    function meterToFoot(meter){
+        return  3.279 * meter;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    function reverse_array(a) {
+        let arr1 = [];
+        let count = 0;
+        for (let i = a.length - 1; i >= 0; i--) {
+            arr1[count] = a[i];
+            count++;
+        }
+        alert(arr1.toString());
+        return arr1;
+    }
+
+    alert(arr.toString() + '\n' + reverse_array(arr).toString());
+</script>
+</body>
+</html>
