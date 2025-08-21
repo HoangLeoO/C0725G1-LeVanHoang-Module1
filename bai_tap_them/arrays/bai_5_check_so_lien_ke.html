@@ -14,16 +14,18 @@
         i++;
     } while (i < numbers.length);
     let check = true;
-    for (let i = 0 ; i < numbers.length ; i+2){
-        if (numbers[i+1] <= numbers.length){
-            if (!(numbers[i] < numbers[i+1])){
+    for (let i = 0; i < numbers.length; i ++) {
+        if (numbers[i + 1] <= numbers.length) {
+            if (numbers[i] > numbers[i + 1]) {
                 check = false;
             }
         }
     }
 
-    if (check){
-
+    if (check) {
+        alert("Mảng tằng dần");
+    } else {
+        alert("NO");
     }
 </script>
 </body>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let strings = "tdhiiutythdt";
+
+    if (strings.length % 2 === 0) {
+        let count = strings.length - 1;
+        let check = true;
+        for (let i = 0; i < (strings.length) / 2; i++) {
+            if (strings.at(i) !== strings.at(count)) {
+                check = false;
+                break;
+            }
+            console.log(strings.at(i) + strings.at(count));
+            count--;
+        }
+    }
+
+    // hàm đệ q
+    function check_string(s, i, l) {
+
+        if (i >= l) {
+            console.log("TRue");
+            return true;
+        }
+        if (s.at(i) !== s.at(l) ){
+            return false;
+        }
+         return check_string(s, i+1, l-1);
+    }
+    if (check_string(strings, 0, strings.length-1)){
+        console.log("TRue");
+    }
+
+</script>
+</body>
+</html>

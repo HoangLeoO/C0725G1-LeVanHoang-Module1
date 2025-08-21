@@ -6,13 +6,20 @@
 </head>
 <body>
 <script>
-    let length_array = +prompt("Độ dài của mảng :  ")
-    let numbers = new Array(length_array);
+    // Nhập 1 mảng từ bàn phím với độ dài n
+    // Hiện thị mảng sau khi thêm mới các phần tử
+    // Kiểm tra mảng vừa nhập. Nếu số phần tử chẵn bằng số phần tử lẻ thì hiện thị thông báo "OK", nếu không thoả mãn thì hiện thị "NO"
+
+    let size;
+    do {
+        size = +prompt("Độ dài của mảng :  ")
+    }while ( size < 10  || size > 100)
+    let numbers = new Array(size);
     let i = 0;
     do {
         numbers[i] = +prompt(" Nhập số nguyên thứ : " + [i + 1]);
         i++;
-    } while (i < numbers.length);
+    } while (i < size);
 
     let count1 = 0 ;
     let count2 = 0 ;

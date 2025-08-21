@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Khai báo  1 mảng số nguyên từ bàn phím với độ dài n.-->
+<!--Nhập các phần tử cho  mảng với  một số nguyên lớn hơn 10 và nhỏ hơn 100.-->
+<!--Hiện thị mảng sau khi thêm mới các phần tử-->
+<!--Viết chương trình hiện thị các phần tử của mảng có hàng đơn vị lớp hơn hàng chục ví dụ: [11, 12, 21 , 56, 19] => kết quả hiện thị ra 12,56,19-->
+
+<script>
+    let size;
+    do {
+        size = +prompt("Độ dài của mảng :  ");
+    } while (size > 10 || size < 0)
+    let numbers = new Array(size);
+    for (let i = 0; i < size; i++) {
+        do {
+            numbers[i] = +prompt(" Nhập sô nguyên thứ : " + (i+1));
+        } while (numbers[i] < 10 || numbers[i] > 100)
+    }
+    alert(numbers);
+
+    for (let i = 0; i < numbers.length; i++) {
+        let numStr = String(numbers[i]);
+       if (Number(numStr.at(0)) < Number(numStr.at(1))){
+           console.log(numbers[i]);
+       }
+    }
+
+</script>
+</body>
+</html>

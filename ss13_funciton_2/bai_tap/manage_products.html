@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+
+        }
+
+        table tr, th, td {
+        }
+
+        th, td {
+            width: 100px;
+            height: 50px;
+        }
+
+        button {
+            border: none;
+            color: white;
+            padding: 14px 18px;
+            cursor: pointer;
+            background-color: #04AA6D;
+            box-sizing: border-box;
+        }
+
+        button:hover {
+            background: #0b7dda;
+        }
+
+        td:nth-child(even) {
+            background: rgba(234, 108, 222, 0.3);
+        }
+
+        td:nth-child(odd) {
+            background-color: yellow;
+        }
+
+        .input-btn {
+
+        }
+    </style>
+</head>
+<body>
+
+<br>
+<div id="result_input"></div>
+<br>
+<div id="result_list"></div>
+
+
+<script>
+
+    let products = [
+        ["Nokia", 50],
+        ["SamSung", 40],
+    ];
+
+    display_table();
+    createForm();
+
+    function display_table() {
+        let table_text = "<table>";
+        table_text += "<tr>";
+        table_text += "<th>STT</th>";
+        table_text += "<th>Products</th>";
+        table_text += "<th>Quantity</th>";
+        table_text += "<th colSpan=\"2\"></th>";
+        table_text += "</tr>";
+        for (let i = 0; i < products.length; i++) {
+            table_text += "<tr>";
+            table_text += `<td>${i + 1}</td>`;
+            for (let j = 0; j < products[i].length; j++) {
+                console.log(products[i][j].toString());
+                table_text += `<td id="item${i}_${j}">${products[i][j]}</td>`;
+            }
+            table_text += `<td id="row${i}edit" onclick="editFormProduct(${i})"><button type="button">Edit</button></td>`;
+            table_text += `<td id="row${i}delete" onclick="delete_product(${i})" ><button type="button">Delete</button></td>`;
+            table_text += "</tr>";
+        }
+        table_text += "</table>";
+        document.getElementById("result_list").innerHTML = table_text;
+    }
+
+
+    function createForm() {
+        let createForm = '<form>';
+        createForm += `<input id="create_name" type="text" onblur="check_validate()">`;
+        createForm += `<input id="create_quantity" type="text">`;
+        createForm += `<button id="btn-add" disabled  type="button" onclick="createProducts()" >Add</button>`;
+        createForm += `</form>`
+        document.getElementById("result_input").innerHTML = createForm;
+        document.getElementById("create_name").value = "";
+        document.getElementById("create_quantity").value = "";
+    }
+
+
+    function createProducts() {
+
+        let name = document.getElementById("create_name").value;
+        let quantity = document.getElementById("create_quantity").value;
+        let product = [];
+
+        console.log(name, quantity);
+        product = [name, quantity];
+
+        let check = false;
+        for (let i = 0; i < products.length; i++) {
+            if (products[i][0] === name) {
+                check = true;
+                break;
+            }
+        }
+        if (check) {
+            alert("Trùng tên !!!");
+        } else {
+            products.push(product);
+        }
+        display_table();
+    }
+
+
+    function editFormProduct(row_id) {
+        let editForm = '<form id="edit_product">';
+        editForm += `<input id="edit_name" type="text">`;
+        editForm += `<input id="edit_quantity" type="text">`;
+        editForm += `<button type="button" onclick="editProduct(${row_id})">Edit</button>`;
+        editForm += `</form>`
+        document.getElementById("result_input").innerHTML = editForm;
+        document.getElementById("edit_name").value = products[row_id][0];
+        document.getElementById("edit_quantity").value = products[row_id][1];
+
+    }
+
+    function editProduct(row_id) {
+        if (confirm("Xac nhan thay doi !!!")) {
+            products[row_id][0] = document.getElementById("edit_name").value;
+            products[row_id][1] = document.getElementById("edit_quantity").value;
+            display_table();
+            createForm();
+        }
+    }
+
+    function delete_product(id_product) {
+        if (confirm("Ban co muon xoa product " + products[id_product][0])) {
+            products.splice(id_product, 1);
+            display_table();
+        }
+    }
+
+    function check_validate() {
+        let idValid = true;
+        if (document.getElementById("create_name").value === "") {
+            alert("  Tên không được để trống ! ");
+            idValid = false;
+        } else if (document.getElementById("create_quantity").value === "") {
+            alert(" Số lượng không được để trống ! ")
+            idValid = false;
+        }
+        document.getElementById("btn-add").disabled = !idValid;
+    }
+</script>
+</body>
+</html>
