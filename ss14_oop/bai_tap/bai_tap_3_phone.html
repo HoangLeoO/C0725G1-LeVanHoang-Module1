@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="phone">
+
+</div>
+<script>
+    class Phone {
+        indexSend;
+        indexInBox;
+
+        constructor(name,batteryLevel = 100, isOn = false, draftMessage = "", inBox = [], sent = []) {
+            this.name = name;
+            this.batteryLevel = batteryLevel;
+            this.isOn = isOn;
+            this.draftMessage = draftMessage;
+            this.inBox = inBox;
+            this.sent = sent;
+        }
+        getName(){
+            return this.name ;
+        }
+        setName(name){
+            this.name = name;
+        }
+        getBatteryLevel() {
+            return this.batteryLevel;
+        }
+
+        setBatteryLevel(batteryLevel) {
+            this.batteryLevel = batteryLevel;
+        }
+
+        getIsOn() {
+            return this.isOn;
+        }
+
+        setInOn(isOn) {
+            this.isOn = isOn;
+        }
+
+        getDratMessage() {
+            return this.draftMessage;
+        }
+
+        setDratMessage(draftMessage) {
+            this.draftMessage = draftMessage;
+        }
+
+        getInbox() {
+            return this.inBox;
+        }
+
+        setInBox(inBox) {
+            this.inBox = inBox;
+        }
+
+        getSent() {
+            return this.sent;
+        }
+
+        setSent(sent) {
+            this.sent = sent;
+        }
+
+        turnOnOff() {
+            if (this.getIsOn()) {
+                this.isOn = false;
+            } else {
+                this.isOn = true;
+            }
+        }
+
+        charingBattery() {
+            for (let i = 0; i <= 100; i++) {
+                if (this.getBatteryLevel() <= 100) {
+                    console.log(this.batteryLevel)
+                    this.batteryLevel += 1;
+                } else {
+                    break;
+                }
+            }
+        }
+        composeMessage(mess){
+            this.draftMessage = mess;
+        }
+        sendMessage(send){
+            this.indexSend = 0 ;
+            this.sent[size] = send;
+            size ++;
+        }
+        toString(){
+            return this.name +"-"+this.batteryLevel+ "%" +"-"+this.isOn;
+        }
+    }
+
+    let nokia = new Phone("Nokia");
+    console.log(nokia.toString());
+    nokia.turnOnOff();
+    nokia.setBatteryLevel(50);
+    nokia.charingBattery();
+
+
+
+    console.log(nokia.toString());
+    nokia.turnOnOff();
+    console.log(nokia.toString());
+    let iPhone = new Phone("Iphone");
+    console.log(iPhone.toString());
+</script>
+</body>
+</html>
