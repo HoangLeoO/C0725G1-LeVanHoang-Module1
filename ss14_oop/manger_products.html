@@ -33,7 +33,7 @@
         }
 
         createProduct(product) {
-            if (this.products.some(p => p.getName() === product)) {
+            if (this.products.includes(product)) {
                 console.log("Sản phẩm đã tồn tại!");
                 return;
             }
