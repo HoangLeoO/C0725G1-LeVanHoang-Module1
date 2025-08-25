@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Product {
+        constructor(name) {
+            this.name = name;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(value) {
+            this.name = value;
+        }
+    }
+
+    class ManagerProduct {
+        constructor() {
+            this.products = [];
+        }
+
+        createTable() {
+            if (this.products.length > 0)
+                for (let i = 0; i < this.products.length; i++) {
+                    console.log((i + 1) + "." + this.products[i].getName());
+                }
+        }
+
+        createProduct(product) {
+            if (this.products.some(p => p.getName() === product)) {
+                console.log("Sản phẩm đã tồn tại!");
+                return;
+            }
+            this.products.push(new Product(product));
+        }
+
+        editProduct(i, value) {
+            if (this.products[i]) {
+                this.products[i].setName(value);
+            } else {
+                console.log("Không tìm thấy sản phẩm ở vị trí " + i);
+            }
+        }
+
+        deleteProduct(i) {
+            if (this.products[i]) {
+                this.products.splice(i, 1);
+            }
+        }
+    }
+
+    let newTable = new ManagerProduct();
+    newTable.createProduct("Nokia");
+    newTable.createProduct("Samsung");
+    newTable.createProduct("Oppo");
+    newTable.createTable();
+
+    console.log("=== Sau khi sửa ===");
+    newTable.editProduct(1, "iPhone");
+    newTable.createTable();
+
+    console.log("=== Sau khi xóa ===");
+    newTable.deleteProduct(0);
+    newTable.createTable();
+
+</script>
+</body>
+</html>

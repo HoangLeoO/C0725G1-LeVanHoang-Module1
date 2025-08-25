@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table {
+        width: 600px;
+        border-collapse: collapse;
+        text-align: center;
+    }
+
+    table tr, td {
+        border: 1px solid black;
+    }
+
+    td {
+        width: 50px;
+        height: 50px;
+    }
+</style>
+<body>
+<div id="result"></div>
+<button onclick="newGame.start()">Game Mới</button>
+<script>
+    class Cell {
+        constructor(row, col, value = "") {
+            this.row = row; // dòng
+            this.col = col; // cột
+            this.value = value;
+        }
+
+
+        getValue() {
+            return this.value;
+        }
+
+        setValue(value) {
+            this.value = value;
+        }
+
+    }
+
+    class Board {
+        constructor(size) {
+            this.size = size;
+            this.cells = null;
+        }
+
+        createCells() {
+            this.cells = [];
+            for (let i = 0; i < this.size; i++) {
+                let row = [];
+                for (let j = 0; j < this.size; j++) {
+                    row.push(new Cell(i, j));
+                }
+                this.cells.push(row);
+            }
+        }
+
+        getCells() {
+            return this.cells;
+        }
+
+        setCell(i, j, value) {
+            this.cells[i][j].setValue(value);
+        }
+
+
+    }
+
+    class GamePlay {
+        constructor() {
+            this.player = 0;
+            this.board = null;
+        }
+
+        getPlayer() {
+            return this.player;
+        }
+
+        setPlayer(value) {
+            this.player = value;
+        }
+
+        display() {
+            let table_string = '<table>';
+            for (let i = 0; i < this.board.getCells().length; i++) {
+                table_string += "<tr>";
+                for (let j = 0; j < this.board.getCells()[i].length; j++) {
+                    table_string += `<td onclick="newGame.clickBox(${i},${j},${this.player})" id="item${i}_${j}">${this.board.getCells()[i][j].getValue()}</td>`;
+                }
+                table_string += "</tr>";
+            }
+            table_string += `</table>`;
+            document.getElementById("result").innerHTML = table_string;
+        }
+
+        clickBox(i, j, player) {
+            if (this.board.getCells()[i][j].getValue() === "") {
+                if (player === 0) {
+                    this.board.setCell(i, j, "X");
+                    console.log(i, j, this.player);
+                    this.setPlayer(1);
+                } else {
+                    this.board.setCell(i, j, "O");
+                    this.setPlayer(0);
+                    console.log(i, j, this.player);
+                }
+            } else {
+                alert(" Ô này đã được đánh !!");
+            }
+
+            this.display();
+            if (this.check_row() || this.check_col() || this.check_cross()) {
+                alert("Kết thúc game!");
+            }
+
+        }
+
+        check_row() {
+            let size = this.board.getCells().length;
+            for (let i = 0; i < size; i++) {
+                for (let j = 0; j <= size - 5; j++) { // chỉ check tới size-5
+                    let val = this.board.getCells()[i][j].getValue();
+                    if (val !== "") {
+                        if (
+                            val === this.board.getCells()[i][j + 1].getValue() &&
+                            val === this.board.getCells()[i][j + 2].getValue() &&
+                            val === this.board.getCells()[i][j + 3].getValue() &&
+                            val === this.board.getCells()[i][j + 4].getValue()
+                        ) {
+                            alert("Bingo Ngang !");
+                            for (let k = 0; k < 5; k++) {
+                                document.getElementById(`item${i}_${j + k}`).style.backgroundColor = "red";
+                            }
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        check_col() {
+            let size = this.board.getCells().length;
+            for (let i = 0; i <= size - 5; i++) {
+                for (let j = 0; j < size; j++) {
+                    let val = this.board.getCells()[i][j].getValue();
+                    if (val !== "") {
+                        if (
+                            val === this.board.getCells()[i + 1][j].getValue() &&
+                            val === this.board.getCells()[i + 2][j].getValue() &&
+                            val === this.board.getCells()[i + 3][j].getValue() &&
+                            val === this.board.getCells()[i + 4][j].getValue()
+                        ) {
+                            alert("Bingo Dọc !");
+                            for (let k = 0; k < 5; k++) {
+                                document.getElementById(`item${i + k}_${j}`).style.backgroundColor = "red";
+                            }
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        check_cross() {
+            let size = this.board.getCells().length;
+            for (let i = 0; i <= size - 5; i++) {
+                for (let j = 0; j <= size - 5; j++) {
+                    let val = this.board.getCells()[i][j].getValue();
+                    if (val !== "") {
+                        if (
+                            val === this.board.getCells()[i + 1][j + 1].getValue() &&
+                            val === this.board.getCells()[i + 2][j + 2].getValue() &&
+                            val === this.board.getCells()[i + 3][j + 3].getValue() &&
+                            val === this.board.getCells()[i + 4][j + 4].getValue()
+                        ) {
+                            alert("Bingo Chéo Xuống !");
+                            for (let k = 0; k < 5; k++) {
+                                document.getElementById(`item${i + k}_${j + k}`).style.backgroundColor = "red";
+                            }
+                            return true;
+                        }
+                    }
+                }
+            }
+            for (let i = 4; i < size; i++) {
+                for (let j = 0; j <= size - 5; j++) {
+                    let val = this.board.getCells()[i][j].getValue();
+                    if (val !== "") {
+                        if (
+                            val === this.board.getCells()[i - 1][j + 1].getValue() &&
+                            val === this.board.getCells()[i - 2][j + 2].getValue() &&
+                            val === this.board.getCells()[i - 3][j + 3].getValue() &&
+                            val === this.board.getCells()[i - 4][j + 4].getValue()
+                        ) {
+                            alert("Bingo Chéo Lên !");
+                            for (let k = 0; k < 5; k++) {
+                                document.getElementById(`item${i - k}_${j + k}`).style.backgroundColor = "red";
+                            }
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+        start(){
+            this.board = new Board(10);
+            this.board.createCells();
+            newGame.display();
+        }
+    }
+
+    let newGame = new GamePlay();
+
+
+
+</script>
+</body>
+</html>

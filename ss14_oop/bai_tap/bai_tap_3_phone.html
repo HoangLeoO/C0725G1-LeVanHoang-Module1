@@ -4,113 +4,135 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+
+</style>
 <body>
-<div class="phone">
-
-</div>
 <script>
-    class Phone {
-        indexSend;
-        indexInBox;
+    class Mobile {
+        constructor(name) {
+            this.name = name;
+            this.batteryLevel = 100;
+            this.isOn = false;
+            this.draftMessage = "";
+            this.inBox = [];
+            this.sent = [];
+        }
 
-        constructor(name,batteryLevel = 100, isOn = false, draftMessage = "", inBox = [], sent = []) {
-            this.name = name;
-            this.batteryLevel = batteryLevel;
-            this.isOn = isOn;
-            this.draftMessage = draftMessage;
-            this.inBox = inBox;
-            this.sent = sent;
+        getName() {
+            return this.name;
         }
-        getName(){
-            return this.name ;
-        }
-        setName(name){
+
+        setName(name) {
             this.name = name;
         }
+
         getBatteryLevel() {
             return this.batteryLevel;
         }
 
-        setBatteryLevel(batteryLevel) {
-            this.batteryLevel = batteryLevel;
+        setBatteryLevel(value) {
+            this.batteryLevel = value;
         }
 
-        getIsOn() {
+        useBattery() {
+            if (this.isOn) {
+                this.batteryLevel--;
+            }
+        }
+
+        checkStatus() {
             return this.isOn;
         }
 
-        setInOn(isOn) {
-            this.isOn = isOn;
+        turnOn() {
+            this.isOn = true;
         }
 
-        getDratMessage() {
+        turnOff() {
+            this.isOn = false;
+        }
+
+        charge() {
+            if (this.batteryLevel < 100) {
+                this.batteryLevel++;
+            } else {
+                alert("Pin Full!");
+            }
+        }
+
+        composeMessage(msg) {
+            this.draftMessage = msg;
+        }
+
+        getComposeMess() {
             return this.draftMessage;
         }
 
-        setDratMessage(draftMessage) {
-            this.draftMessage = draftMessage;
-        }
-
-        getInbox() {
-            return this.inBox;
-        }
-
-        setInBox(inBox) {
-            this.inBox = inBox;
-        }
-
-        getSent() {
-            return this.sent;
-        }
-
-        setSent(sent) {
-            this.sent = sent;
-        }
-
-        turnOnOff() {
-            if (this.getIsOn()) {
-                this.isOn = false;
+        sendMessage(mobile) {
+            if (this.isOn && this.batteryLevel > 0) {
+                let send = this.getName() + ": " + this.getComposeMess();
+                this.sent.push(send);
+                mobile.receiveMessage(send);
+                this.composeMessage("");
+                this.useBattery();
+            } else if (!this.isOn) {
+                alert(" Phone is Off! ")
             } else {
-                this.isOn = true;
+                alert(" Pin < 0! ")
+            }
+
+        }
+
+        receiveMessage(mrg) {
+            this.inBox.push(mrg);
+        }
+
+        viewInbox() {
+            if (this.isOn && this.inBox.length > 0) {
+                let result = "";
+                for (let i = 0; i < this.inBox.length; i++) {
+                    result += (i + 1) + ". " + this.inBox[i] + "\n";
+                }
+                return result;
+            } else if (!this.isOn) {
+                alert(" Phone is Off! ")
+            } else {
+                alert(" Pin < 0! ")
             }
         }
 
-        charingBattery() {
-            for (let i = 0; i <= 100; i++) {
-                if (this.getBatteryLevel() <= 100) {
-                    console.log(this.batteryLevel)
-                    this.batteryLevel += 1;
-                } else {
-                    break;
+        viewSent() {
+            if (this.isOn && this.sent.length > 0) {
+                let result = "";
+                for (let i = 0; i < this.sent.length; i++) {
+                    result += (i + 1) + ". " + this.sent[i] + "\n";
                 }
+                return result;
+            } else if (!this.isOn) {
+                alert(" Phone is Off! ")
+            } else {
+                alert(" Pin < 0! ")
             }
-        }
-        composeMessage(mess){
-            this.draftMessage = mess;
-        }
-        sendMessage(send){
-            this.indexSend = 0 ;
-            this.sent[size] = send;
-            size ++;
+
         }
         toString(){
-            return this.name +"-"+this.batteryLevel+ "%" +"-"+this.isOn;
+            return this.name + "-" + this.batteryLevel + "-" + this.isOn ;
         }
     }
 
-    let nokia = new Phone("Nokia");
+    let nokia = new Mobile("Nokia");
+    let iphone = new Mobile("Iphone");
+    nokia.turnOn();
+    iphone.turnOn();
+    nokia.composeMessage("Hello Iphone!");
+    nokia.sendMessage(iphone);
     console.log(nokia.toString());
-    nokia.turnOnOff();
-    nokia.setBatteryLevel(50);
-    nokia.charingBattery();
+    console.log(nokia.viewSent());
+    console.log(iphone.viewInbox())
 
 
 
-    console.log(nokia.toString());
-    nokia.turnOnOff();
-    console.log(nokia.toString());
-    let iPhone = new Phone("Iphone");
-    console.log(iPhone.toString());
 </script>
 </body>
 </html>

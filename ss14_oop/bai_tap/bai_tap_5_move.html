@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="game"></div>
+<script>
+    class Player{
+        constructor(image,top,left,size,speed) {
+            this._image = image;
+            this._top = top;
+            this._left = left;
+            this._size = size;
+            this._speed = speed;
+        }
+        getPlayer(){
+            return '<img width="'+ this._size + '"' +
+                ' height="'+ this._size + '"' +
+                ' src="' + this._image +'"' +
+                ' style="top: '+this._top+'px; left:'+this._left+'px;position:absolute;" />';
+        }
+        getImage(){
+            return this._image;
+        }
+
+        setImage(value) {
+            this._image = value;
+        }
+
+        getTop() {
+            return this._top;
+        }
+
+        setTop(value) {
+            this._top = value;
+        }
+
+        getLeft() {
+            return this._left;
+        }
+
+        setLeft(value) {
+            this._left = value;
+        }
+
+        getSize() {
+            return this._size;
+        }
+
+        setSize(value) {
+            this._size = value;
+        }
+        getSpeed(){
+            return this._speed;
+        }
+        setSpeed(value){
+            this._speed = value;
+        }
+        moveRight()
+        {
+            this._left += (10 + this._speed) ;
+        }
+
+    }
+
+    let hero = new Player('https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_%28soccer_ball%29.svg', 20, 30, 200,0);
+
+    function start(){
+        if(hero.getLeft() < window.innerWidth - hero.getSize()){
+            hero.moveRight();
+        }
+        document.getElementById('game').innerHTML = hero.getPlayer();
+        setTimeout(start, 500)
+    }
+    hero.setSpeed(20)
+    start();
+</script>
+</body>
+</html>

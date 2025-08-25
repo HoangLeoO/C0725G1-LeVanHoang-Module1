@@ -81,10 +81,10 @@
                         val === arrays[i][j + 3] &&
                         val === arrays[i][j + 4]) {
                         document.getElementById(`item${i}_${j}`).style.backgroundColor = "red";
-                        document.getElementById(`item${i}_${j+1}`).style.backgroundColor = "red";
-                        document.getElementById(`item${i}_${j+2}`).style.backgroundColor = "red";
-                        document.getElementById(`item${i}_${j+3}`).style.backgroundColor = "red";
-                        document.getElementById(`item${i}_${j+4}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i}_${j + 1}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i}_${j + 2}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i}_${j + 3}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i}_${j + 4}`).style.backgroundColor = "red";
                         alert("Bingo Dọc !");
                         break;
                     } else if (
@@ -92,13 +92,12 @@
                         val === arrays[i + 2][j] &&
                         val === arrays[i + 3][j] &&
                         val === arrays[i + 4][j]) {
-                        alert("Bingo Ngang !");
                         document.getElementById(`item${i}_${j}`).style.backgroundColor = "red";
-                        document.getElementById(`item${i+1}_${j}`).style.backgroundColor = "red";
-                        document.getElementById(`item${i+2}_${j}`).style.backgroundColor = "red";
-                        document.getElementById(`item${i+3}_${j}`).style.backgroundColor = "red";
-                        document.getElementById(`item${i+4}_${j}`).style.backgroundColor = "red";
-
+                        document.getElementById(`item${i + 1}_${j}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i + 2}_${j}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i + 3}_${j}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i + 4}_${j}`).style.backgroundColor = "red";
+                        alert("Bingo Ngang !");
                         break;
                     } else if (
                         val === arrays[i + 1][j + 1] &&
@@ -107,10 +106,10 @@
                         val === arrays[i + 4][j + 4]) {
                         alert("Bingo Chéo !");
                         document.getElementById(`item${i}_${j}`).style.backgroundColor = "red";
-                        document.getElementById(`item${i+1}_${j+1}`).style.backgroundColor = "red";
-                        document.getElementById(`item${i+2}_${j+2}`).style.backgroundColor = "red";
-                        document.getElementById(`item${i+3}_${j+3}`).style.backgroundColor = "red";
-                        document.getElementById(`item${i+4}_${j+4}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i + 1}_${j + 1}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i + 2}_${j + 2}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i + 3}_${j + 3}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i + 4}_${j + 4}`).style.backgroundColor = "red";
                         break;
                     } else if (
                         val === arrays[i + 1][j - 1] &&
@@ -118,10 +117,10 @@
                         val === arrays[i + 3][j - 3] &&
                         val === arrays[i + 4][j - 4]) {
                         document.getElementById(`item${i}_${j}`).style.backgroundColor = "red";
-                        document.getElementById(`item${i+1}_${j-1}`).style.backgroundColor = "red";
-                        document.getElementById(`item${i+2}_${j-2}`).style.backgroundColor = "red";
-                        document.getElementById(`item${i+3}_${j-3}`).style.backgroundColor = "red";
-                        document.getElementById(`item${i+4}_${j-4}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i + 1}_${j - 1}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i + 2}_${j - 2}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i + 3}_${j - 3}`).style.backgroundColor = "red";
+                        document.getElementById(`item${i + 4}_${j - 4}`).style.backgroundColor = "red";
                         alert("Bingo Chéo !");
                         break;
                     }

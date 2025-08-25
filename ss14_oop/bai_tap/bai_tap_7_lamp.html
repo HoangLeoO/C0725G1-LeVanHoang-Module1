@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" onclick="turnLamp()">Công tắt</button>
+<script>
+    class SwitchButton {
+        constructor(status = false, electricLamp) {
+            this.status = status;
+            this.lamp = electricLamp;
+        }
+
+        getStatus() {
+            return this.status;
+        }
+
+        switchOn() {
+            this.status = true;
+            this.lamp.turnOn();
+        }
+
+        switchOff() {
+            this.status = false;
+            this.lamp.turnOff();
+        }
+
+        connectToLamp(ElectricLamp) {
+            this.lamp = ElectricLamp;
+        }
+    }
+
+    class ElectricLamp {
+        constructor(status = false) {
+            this.status = status;
+        }
+
+        turnOff() {
+            this.status = false;
+        }
+
+        turnOn() {
+            this.status = true;
+        }
+    }
+
+    let den = new ElectricLamp();
+    let button = new SwitchButton();
+    button.connectToLamp(den);
+    console.log(button.getStatus());
+
+    function turnLamp() {
+
+        if (!button.getStatus()) {
+            button.switchOn()
+            console.log(" Đèn On ");
+
+        } else {
+            button.switchOff();
+            console.log(" Đèn Off  ");
+        }
+    }
+
+
+</script>
+</body>
+</html>
