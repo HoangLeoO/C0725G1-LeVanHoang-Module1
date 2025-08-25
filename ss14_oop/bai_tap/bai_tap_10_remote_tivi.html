@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Remote {
+        constructor(id, tiVi) {
+            this.id = id;
+            this.tiVi = tiVi;
+        }
+
+        inVolume() {
+            if (this.tiVi.status()) {
+                if (this.tiVi.getVolume() < 100) {
+                    this.tiVi.setVolume(this.tiVi.getVolume() + 5);
+                }
+            } else {
+                console.log("Ti vi dang off")
+            }
+
+        }
+
+        deVolume() {
+            if (this.tiVi.status()) {
+                if (this.tiVi.getVolume() > 0)
+                    this.tiVi.setVolume(this.tiVi.getVolume() - 5);
+            } else {
+                console.log("Ti vi dang off")
+            }
+        }
+
+        moveChannel(value) {
+            if (this.tiVi.status()){
+                this.tiVi.setChannel(value);
+            } else {
+                console.log("Ti vi dang off")
+            }
+        }
+        turnTiVI(){
+            if (this.tiVi.status()){
+                this.tiVi.turnOff();
+            }else {
+                this.tiVi.turnOn();
+            }
+        }
+
+    }
+
+    class TiVi {
+        constructor() {
+            this._channel = 1;
+            this._volume = 0;
+            this._isOn = false;
+            this._channels = [1, 2, 3, 4, 5, 6, 7];
+        }
+
+
+        currentChannel() {
+            return this._channel;
+        }
+
+
+        setChannel(value) {
+            this._channel = value;
+        }
+
+        getVolume() {
+            return this._volume;
+        }
+
+        setVolume(value) {
+            this._volume = value;
+        }
+
+        status() {
+            return this._isOn;
+        }
+
+        setIsOn(value) {
+            this._isOn = value;
+        }
+
+        addChannel(value) {
+            this._channels.push(value);
+        }
+
+        turnOn() {
+            this.setIsOn(true);
+        }
+
+        turnOff() {
+            this.setIsOn(false);
+        }
+
+        toString(){
+            return this._channel + "-" + this._isOn + "-" + this._volume;
+        }
+
+    }
+
+    let tiVi = new TiVi();
+    let remote = new Remote(1,tiVi);
+    console.log(tiVi.toString())
+    remote.turnTiVI();
+    remote.moveChannel(7)
+    console.log(tiVi.toString())
+    remote.inVolume();
+    console.log(tiVi.toString())
+    remote.inVolume();
+    console.log(tiVi.toString())
+    remote.inVolume();
+    console.log(tiVi.toString())
+    remote.inVolume();
+    remote.turnTiVI();
+    console.log(tiVi.toString())
+</script>
+</body>
+</html>

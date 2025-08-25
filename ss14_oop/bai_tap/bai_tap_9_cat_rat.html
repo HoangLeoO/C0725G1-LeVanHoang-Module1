@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Animal {
+        constructor(name, weight, speed, say) {
+            this.weight = weight;
+            this._name = name;
+            this._speed = speed;
+            this._say = say;
+        }
+
+        getName() {
+            return this._name;
+        }
+
+        setName(value) {
+            this._name = value;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        setWeight(value) {
+            this.weight = value;
+        }
+
+        getSpeed() {
+            return this._speed;
+        }
+
+        setSpeed(value) {
+            this._speed = value;
+        }
+
+        getSay() {
+            return this._say;
+        }
+
+        setSay(value) {
+            this._say = value;
+        }
+
+        toString() {
+            return this._name + "/" + this.weight + "/" + this._say + "/" + this._speed;
+        }
+    }
+
+    class Rat extends Animal {
+        constructor(name, weight, speed, say) {
+            super(name, weight, speed, say);
+            this.status = true;
+        }
+    }
+
+    class Cat extends Animal {
+        constructor(name, weight, speed, say) {
+            super(name, weight, speed, say);
+        }
+
+        eat(rat) {
+            if (this.getSpeed() > rat.getSpeed()) {
+                if (rat.status) {
+                    console.log("an dc");
+                    this.weight = this.weight + rat.weight;
+                    rat.setWeight(0);
+                } else {
+                    console.log("chuot chet");
+                }
+            } else {
+                console.log("Do may bat dc tao ");
+            }
+
+        }
+    }
+
+    let cat = new Cat("Tom", 10, 5, "Meo Meo");
+    let rat = new Rat("Rat", 1, 2, "Chit chit");
+    let rat2 = new Rat("Rat2", 1, 6, "Chit chit");
+    cat.eat(rat);
+    cat.eat(rat2);
+    console.log(cat.toString());
+    console.log(rat.toString());
+
+</script>
+</body>
+</html>

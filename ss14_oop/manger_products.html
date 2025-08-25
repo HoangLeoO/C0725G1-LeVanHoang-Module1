@@ -33,11 +33,20 @@
         }
 
         createProduct(product) {
-            if (this.products.includes(product)) {
-                console.log("Sản phẩm đã tồn tại!");
-                return;
+            let exists = false;
+
+            for (let i = 0; i < this.products.length; i++) {
+                if (this.products[i].getName() === product) {
+                    exists = true;
+                    break;
+                }
             }
-            this.products.push(new Product(product));
+
+            if (exists) {
+                console.log("Sản phẩm đã tồn tại:", product);
+            } else {
+                this.products.push(new Product(product));
+            }
         }
 
         editProduct(i, value) {
@@ -57,17 +66,18 @@
 
     let newTable = new ManagerProduct();
     newTable.createProduct("Nokia");
+    newTable.createProduct("Nokia");
     newTable.createProduct("Samsung");
     newTable.createProduct("Oppo");
     newTable.createTable();
 
-    console.log("=== Sau khi sửa ===");
-    newTable.editProduct(1, "iPhone");
-    newTable.createTable();
-
-    console.log("=== Sau khi xóa ===");
-    newTable.deleteProduct(0);
-    newTable.createTable();
+    // console.log("=== Sau khi sửa ===");
+    // newTable.editProduct(1, "iPhone");
+    // newTable.createTable();
+    //
+    // console.log("=== Sau khi xóa ===");
+    // newTable.deleteProduct(0);
+    // newTable.createTable();
 
 </script>
 </body>
