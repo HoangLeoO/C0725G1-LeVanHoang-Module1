@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class DanhBa {
+        constructor(sdt, ten, diaChi) {
+            this.sdt = sdt;
+            this.ten = ten;
+            this.diaChi = diaChi;
+        }
+
+        getSdt() {
+            return this.sdt;
+        }
+
+        setSdt(value) {
+            this.sdt = value;
+        }
+
+        getTen() {
+            return this.ten;
+        }
+
+        setTen(value) {
+            this.ten = value;
+        }
+
+        getDiaChi() {
+            return this.diaChi;
+        }
+
+        setDiaChi(value) {
+            this.diaChi = value;
+        }
+
+        toString() {
+            return this.ten + "/" + this.sdt() + "/" + this.diaChi;
+        }
+    }
+
+    class QuanLyDanhBa {
+        constructor() {
+            this.danhBa = [];
+        }
+
+        themDanhBa() {
+
+            if (this.danhBa.length > 0)
+                for (let i = 0; i < this.danhBa.length; i++) {
+                    console.log((i + 1) + "/" + this.danhBa[i].getTen() + "/" + this.danhBa[i].getSdt() + "/" + this.danhBa[i].getDiaChi());
+                }
+        }
+
+        themSDT(sdt, ten, diaChi) {
+            let exists = false;
+
+            for (let i = 0; i < this.danhBa.length; i++) {
+                if (this.danhBa[i].getSdt() === sdt) {
+                    exists = true;
+                    break;
+                }
+            }
+
+            if (exists) {
+                console.log("sdt da ton tai: ", sdt);
+            } else {
+                this.danhBa.push(new DanhBa(sdt, ten, diaChi));
+            }
+
+        }
+
+        deleteProduct(i) {
+            if (this.danhBa[i]) {
+                this.danhBa.splice(i, 1);
+            }
+        }
+    }
+
+    let danhBa = new QuanLyDanhBa();
+    danhBa.themSDT(1, "hoang", "DaNang");
+    danhBa.themSDT(2, "hoang", "DaNang");
+    danhBa.themSDT(3, "hoang", "DaNang");
+    danhBa.themSDT(4, "hoang", "DaNang");
+    danhBa.themSDT(5, "hoang", "DaNang");
+    danhBa.themDanhBa();
+    danhBa.deleteProduct(1);
+    danhBa.themDanhBa();
+
+</script>
+</body>
+</html>

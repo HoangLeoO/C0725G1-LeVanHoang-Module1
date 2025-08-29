@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let strings = prompt();
+
+    function reverseString(s) {
+        let arr = [];
+        for (let i = 0; i < s.length; i++) {
+            arr[i] = s.at(i);
+        }
+        return arr.reverse().join("");
+    }
+
+    function toUpCase(s) {
+        return s.toUpperCase();
+    }
+
+    function toLowCase(s) {
+        return s.toLowerCase();
+    }
+
+    function toUpToLowCase(s) {
+        let arr = [];
+        for (let i = 0; i < s.length; i++) {
+            let a = s.at(i);
+            if (a.charCodeAt(0) >= 65 && a.charCodeAt(0) <= 90) {
+                arr[i] = a.toLowerCase();
+            } else if (a.charCodeAt(0) >= 97 && a.charCodeAt(0) <= 122) {
+                arr[i] = a.toUpperCase()
+            } else {
+                arr[i] = a;
+            }
+        }
+        return arr.join("")
+    }
+
+    alert(toUpCase(strings));
+    alert(toUpToLowCase(strings));
+</script>
+</body>
+</html>

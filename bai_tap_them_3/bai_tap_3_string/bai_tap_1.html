@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let string_text = prompt();
+
+    function chuanHoa(str) {
+        let arr = [];
+        let words = "";
+        for (let i = 0; i < str.length; i++) {
+            if (str.at(i) !== " ") {
+                words += str.at(i).toLowerCase();
+            } else {
+                if (words.length > 0) {
+                    words = words.at(0).toUpperCase() + words.slice(1);
+                    arr.push(words);
+                    words = "";
+                }
+            }
+        }
+        if (str.at(str.length - 1) !== " ") {
+            words = words.at(0).toUpperCase() + words.slice(1);
+            arr.push(words);
+        }
+        return arr.join(" ");
+    }
+
+    alert(chuanHoa(string_text));
+</script>
+</body>
+</html>

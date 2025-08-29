@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: #f4f6f9;
+        margin: 0;
+        padding: 20px;
+    }
+    h1 {
+        color: #2c3e50;
+    }
+    #result {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .lottery {
+        background: #fff;
+        border: 2px solid #2c3e50;
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+    }
+    .lottery input {
+        width: 50px;
+        padding: 5px;
+        margin: 3px;
+        font-size: 16px;
+        text-align: center;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+    }
+    .btn-container {
+        margin-top: 20px;
+    }
+    button {
+        background: #3498db;
+        border: none;
+        color: #fff;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    button:hover {
+        background: #2980b9;
+    }
+</style>
+<body>
+<div id="result"></div>
+<button onclick="lottery.buyTicket()">Mua Ve</button>
+<button onclick="check()">Ket Qua</button>
+<script>
+    class Ticket {
+        constructor(numbers) {
+            this.numbers = numbers;
+        }
+    }
+
+    class LotterySystem {
+        constructor() {
+            this.tickets = [];
+        }
+
+        getTickets() {
+            return this.tickets;
+        }
+
+        buyTicket() {
+            let newTicket;
+            let num;
+            do {
+                num = +prompt("Bạn có 2 lựa chọn : \n" +
+                    "1.Bạn muốn lựa chọn số \n" +
+                    "2.Bạn muốn hệ thống tự ramdom \n"
+                )
+                switch (num) {
+                    case 1 :
+                        newTicket = new Ticket(this.chooseNumbers());
+                        break;
+                    case 2:
+                        newTicket = new Ticket(this.randomNumber());
+                        break;
+                    default :
+                        return alert("Không có lựa chọn này !!");
+                }
+            } while (1 > num && num < 2);
+
+
+            this.tickets.push(newTicket);
+            console.log(this.tickets);
+            this.displayTicket();
+        }
+
+        randomNumber() {
+            let numbers = [];
+            while (numbers.length < 6) {
+                let num = Math.floor(Math.random() * 99) + 1;
+                if (!numbers.includes(num)) {
+                    numbers.push(num);
+                }
+            }
+            return numbers;
+        }
+
+        chooseNumbers() {
+            let numbers = [];
+            let i = 1;
+            while (numbers.length < 6) {
+                let num = prompt(" Nhap so thu : " + i);
+                if (!numbers.includes(num)) {
+                    numbers.push(num);
+                }
+                i++;
+            }
+            return numbers;
+        }
+
+        displayTicket() {
+            let result = "";
+            for (let i = 0; i < this.tickets.length; i++) {
+                result += '<div class="lottery">';
+                for (let j = 0; j < this.tickets[i].numbers.length; j++) {
+                    result += `<input id="num${i}_${j}" type="number" min="1" max="99" value="${this.tickets[i].numbers[j]}" onchange="lottery.updateTicket(${i},${j},this.value)">`;
+                }
+                result += '</div>';
+            }
+            document.getElementById("result").innerHTML = result;
+        }
+
+        updateTicket(i, j, value) {
+            this.tickets[i].numbers[j] = parseInt(value);
+            console.log("Cập nhật vé:", this.tickets);
+        }
+
+        WinningNumbers() {
+            let numbers = [];
+            while (numbers.length < 6) {
+                let num = Math.floor(Math.random() * 99) + 1;
+                if (!numbers.includes(num)) {
+                    numbers.push(num);
+                }
+            }
+            return numbers;
+        }
+
+        checkTicket(tickets) {
+            let win = this.WinningNumbers();
+            console.log("Số trúng:", win);
+            let message = "";
+
+            for (let i = 0; i < tickets.length; i++) {
+                let countNum = 0;
+                for (let j = 0; j < tickets[i].length; j++) {
+                    if (win.includes(tickets[i][j])) {
+                        countNum++;
+                    }
+                }
+                if (countNum === 6) message += `Vé ${i + 1}: Giải đặc biệt!\n`;
+                else if (countNum === 5) message += `Vé ${i + 1}: Giải nhất!\n`;
+                else if (countNum === 4) message += `Vé ${i + 1}: Giải nhì!\n`;
+                else message += `Vé ${i + 1}: Chúc may mắn lần sau!\n`;
+            }
+            return message;
+        }
+
+    }
+
+
+    let lottery = new LotterySystem();
+
+    function check() {
+        alert(lottery.checkTicket(lottery.getTickets()));
+    }
+</script>
+</body>
+</html>

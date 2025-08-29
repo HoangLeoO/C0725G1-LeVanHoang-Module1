@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = "abcdef";
+
+    //Truy cập ký tự
+    str.charAt(index);     // Lấy ký tự tại vị trí index
+    str.charCodeAt(index); // Lấy mã Unicode
+    str[index];            // Cách mới, ngắn gọn
+
+
+    //Lấy chuỗi con
+    str.slice(start, end);       // Cắt từ start đến end (không lấy end)
+    str.substring(start, end);   // Giống slice, nhưng không nhận số âm
+    str.substr(start, length);   // Lấy từ start, số ký tự = length (deprecated nhưng vẫn gặp)
+
+    //Tìm kiếm
+    str.indexOf("text");       // Vị trí đầu tiên tìm thấy, -1 nếu không có
+    str.lastIndexOf("text");   // Vị trí cuối cùng tìm thấy
+    str.includes("text");      // true/false
+    str.startsWith("text");    // true nếu bắt đầu bằng chuỗi đó
+    str.endsWith("text");      // true nếu kết thúc bằng chuỗi đó
+
+    //Thay thế & chuẩn hoá
+    str.replace("a", "b");     // Thay lần đầu tiên
+    str.replaceAll("a", "b");  // Thay tất cả
+    str.trim();                // Xóa khoảng trắng 2 đầu
+    str.trimStart();           // Xóa đầu
+    str.trimEnd();             // Xóa cuối
+
+    //Biến đổi chữ
+    str.toUpperCase();   // In hoa
+    str.toLowerCase();   // In thường
+
+    //Xử lý mảng & chuỗi
+    str.split(",");              // Tách thành mảng theo dấu phẩy
+    arr.join("-");               // Ghép mảng thành chuỗi, cách nhau bằng "-"
+    str.concat(" A", " B");      // Nối chuỗi
+
+    //Lặp chuỗi
+    str.repeat(3);   // Lặp chuỗi 3 lần
+
+    //Chuyển đổi
+    str.toString();   // Chuỗi
+    str.valueOf();    // Giá trị nguyên thủy của chuỗi
+
+    //Template String (ES6 – dùng backtick ``)
+    let name = "Hoàng";
+    let msg = `Xin chào ${name}, hôm nay là ${new Date().toDateString()}`;
+
+
+    //Các method mới (ES2021+)
+    let name = "Hoàng";
+    let msg = `Xin chào ${name}, hôm nay là ${new Date().toDateString()}`;
+
+
+
+
+
+</script>
+</body>
+</html>

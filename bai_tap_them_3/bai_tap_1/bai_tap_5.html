@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = prompt();
+    let sum = parseFloat(number.at(0));
+    let mul = parseFloat(number.at(0));
+    for (let i = 1; i < number.length; i++) {
+        sum += parseFloat(number.at(i));
+    }
+    for (let i = 1; i < number.length; i++) {
+        mul *= parseFloat(number.at(i));
+    }
+    alert(sum + "/" + mul);
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let string_text = prompt(" Nhap chuoi ");
+
+    function tachChuoi(str) {
+        let arr = [];
+        let sizeArr = 0;
+
+        for (let i = 0; i < str.length; i++) {
+            let n = 1;
+            if (str.charCodeAt(i) !== 32) {
+                if (!arr[sizeArr]) {
+                    arr[sizeArr] = "";
+                }
+                arr[sizeArr] += str[i];
+            }
+            if (str.charCodeAt(i) === 32) {
+                while (str.charCodeAt(i + n) === 32) {
+                    n++;
+                }
+                i = (i + n - 1);
+                sizeArr++;
+            }
+        }
+        return arr;
+    }
+
+    function vietTat(arr) {
+        let result = "";
+        if (arr.length >= 2) {
+            for (let i = 0; i < arr.length; i++) {
+                let char = arr[i].at(0);
+                if ((arr[i].charCodeAt(0) < 65 || arr[i].charCodeAt(0) > 90)) {
+                    result += char.toUpperCase();
+                } else {
+                    result += char;
+                }
+            }
+        } else if (arr.length === 1) {
+            if ((arr[0].charCodeAt(0) < 65 || arr[0].charCodeAt(0) > 90)) {
+                result += arr[0].at(0).toUpperCase();
+            } else {
+                result += arr[0].at(0);
+            }
+        } else {
+            result = "";
+        }
+        return result;
+    }
+
+    let arr = tachChuoi(string_text);
+    alert(vietTat(arr));
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = +prompt();
+    let s = 0;
+    for(let i = 1 ; i <= n ; i++){
+        let m = 1;
+        for (let j = 1 ; j <=i ; j++){
+            m = m*(2*j-1);
+        }
+        s += 1/m
+    }
+    alert(s);
+</script>
+</body>
+</html>

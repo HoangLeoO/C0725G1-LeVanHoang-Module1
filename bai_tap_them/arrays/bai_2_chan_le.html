@@ -14,8 +14,11 @@
     // + Nếu mảng có số phần tử lẻ => false
     //     + Ví dụ  checkArray(1,2,3,1,4,9]) => true = (vì 1*1=1 và 2*2=4 và 3*3=9)
     // checkArray([2,1,3,1,1,9]) => false = (vì 2*2=4  khác 1 => sai)
-    let length_array = +prompt("Độ dài của mảng :  ")
-    let numbers = new Array(length_array);
+    let size;
+    do {
+        size = +prompt("Độ dài của mảng :  ")
+    }while ( size < 0)
+    let numbers = new Array(size);
     let i = 0;
     do {
         numbers[i] = +prompt(" Nhập số nguyên thứ : " + [i + 1]);

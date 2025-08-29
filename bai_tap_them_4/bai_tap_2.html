@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let strings = prompt();
+
+    function countToLowToUpp(strings) {
+        let countLow = 0;
+        let countUpp = 0;
+        if (strings !== "") {
+            for (let i = 0; i < strings.length; i++) {
+                    if (strings.charCodeAt(i) >= 65 && strings.charCodeAt(i) <= 90) {
+                        countUpp++;
+                    }
+                    if (strings.charCodeAt(i) >= 97 && strings.charCodeAt(i) <= 122) {
+                        countLow++;
+                    }
+
+            }
+        }
+        return [countUpp, countLow];
+    }
+
+    alert(countToLowToUpp(strings));
+</script>
+</body>
+</html>

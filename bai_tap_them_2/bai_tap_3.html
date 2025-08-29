@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function tongPhanTuLienKe(arr) {
+        let mangHaiSoLienKe = [];
+        let n = 0;
+        for (let i = 0; i < arr.length - 2; i++) {
+            let sum = arr[i] + arr[i + 1];
+            if (sum === arr[i + 2]) {
+                mangHaiSoLienKe[n] = [arr[i], arr[i + 1]];
+                n++;
+            }
+        }
+        return mangHaiSoLienKe;
+    }
+
+    function tongArray(arr) {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        return sum;
+    }
+
+    function sapXepMang(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            let minIndex = i;
+            for (let j = i + 1; j < arr.length; j++) {
+                if (tongArray(arr[j]) < tongArray(arr[minIndex])) {
+                    minIndex = j;
+                }
+                if (minIndex !== i) {
+                    let temp = arr[i];
+                    arr[i] = arr[minIndex];
+                    arr[minIndex] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
+    console.log(sapXepMang((tongPhanTuLienKe([1, 5, 6, 11, 9, 20, 8, 0, 8, 1]))).join("-"));
+</script>
+</body>
+</html>

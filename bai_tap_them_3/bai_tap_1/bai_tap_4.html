@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = +prompt();
+
+    if (n % 2 === 0) {
+        let k = n / 2;
+        let s = 2 ** k;
+        for (let i = 1; i <= k; i++) {
+            s *= i;
+        }
+        alert(s);
+    } else {
+        let k = (n - 1) / 2;
+        let tuSo = 1;
+        let result;
+        for (let i = 1; i <= (2 * k + 1); i++) {
+            tuSo *= i;
+        }
+        let mauSo = (2 ** k);
+        for (let i = 1; i <= k; i++) {
+            mauSo *= i;
+        }
+        result = tuSo / mauSo;
+
+        alert(result);
+    }
+
+
+</script>
+</body>
+</html>

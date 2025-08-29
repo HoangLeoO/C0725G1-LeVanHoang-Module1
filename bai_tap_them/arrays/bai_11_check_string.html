@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Viết 1 hàm truyền vào 1 tham số (với tham số là một chuỗi), (checkString(str))-->
+<!--Hàm trả về mảng các ký tự không phải là số[0,….9] và không phải là ký tự alphabet[a…z,A,…Z]-->
+<script>
+    let text_string = prompt("Nhập chuỗi test : ");
+
+    function checkString(string) {
+        let array_char = [];
+        for (let i = 0; i < string.length; i++) {
+            let code = string.charCodeAt(i);
+            // Nếu KHÔNG phải số (48–57) và KHÔNG phải chữ hoa (65–90) và KHÔNG phải chữ thường (97–122)
+            if ((code < 48 || code > 57) && (code < 65 || code > 90) && (code < 97 || code > 122)) {
+                array_char.push(string[i]);
+            }
+        }
+        return array_char;
+    }
+
+    console.log(checkString(text_string));
+
+</script>
+
+</body>
+</html>

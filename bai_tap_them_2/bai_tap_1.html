@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let sizeArray;
+    do {
+        sizeArray = +prompt("Độ dài của mảng :  ");
+    } while (sizeArray % 3 !== 0 || sizeArray > 15 || sizeArray <= 0)
+    let numbers = new Array(sizeArray);
+    for (let i = 0; i < sizeArray; i++) {
+        numbers[i] = +prompt(" Nhập sô nguyên thứ : " + (i + 1));
+    }
+    alert(numbers.join("-"))
+    let check = true;
+    for (let i = 0; i < numbers.length; i = i + 3) {
+        let a = numbers[i];
+        let b = numbers[i + 1];
+        let c = numbers[i + 2];
+        if (!(a * a === b * b + c * c ||
+            b * b === a * a + c * c ||
+            c * c === a * a + b * b)) {
+            check = false;
+            break;
+        }
+    }
+    alert(check ? "YES" : "NO");
+
+
+</script>
+</body>
+</html>

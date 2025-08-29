@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+
+    }
+
+    table tr, th, td {
+        border: 1px solid black;
+    }
+
+    th, td {
+        width: 100px;
+        height: 50px;
+    }
+
+</style>
+<body>
+<br>
+<div id="result_input"></div>
+<div>
+    <button onclick="quanLy.sapXep()">Sắp Xếp</button>
+</div>
+<br>
+<div id="result_list"></div>
+
+<script>
+    class MayTinh {
+        constructor(ma, ten, hSX, giaBan) {
+            this._ma = ma;
+            this._ten = ten;
+            this._hSX = hSX;
+            this._giaBan = giaBan;
+        }
+
+        getMa() {
+            return this._ma;
+        }
+
+        setMa(value) {
+            this._ma = value;
+        }
+
+        getTen() {
+            return this._ten;
+        }
+
+        setTen(value) {
+            this._ten = value;
+        }
+
+        getHSX() {
+            return this._hSX;
+        }
+
+        setHSX(value) {
+            this._hSX = value;
+        }
+
+        getGiaBan() {
+            return this._giaBan;
+        }
+
+        setGiaBan(value) {
+            this._giaBan = value;
+        }
+
+        toString() {
+            return this._ma + this._ten + this._hSX + this._giaBan;
+        }
+    }
+
+    class QuanLyMayTinh {
+        constructor() {
+            this.mayTinh = [];
+        }
+
+        themMayTinh() {
+            let ma = document.getElementById("ma").value;
+            let ten = document.getElementById("ten").value;
+            let hSX = document.getElementById("hang").value;
+            let giaBan = document.getElementById("giaBan").value;
+            console.log(ma, ten, hSX, parseFloat(giaBan));
+            let mayTinh = new MayTinh(ma, ten, hSX, parseFloat(giaBan));
+            this.mayTinh.push(mayTinh);
+            this.listMayTinh();
+        }
+
+        listMayTinh() {
+            let table_text = "<table>";
+            table_text += "<tr>";
+            table_text += "<th>Mã</th>";
+            table_text += "<th>Tên Máy</th>";
+            table_text += "<th>Hãng Sản Xuất</th>";
+            table_text += "<th>Giá Bán</th>";
+            table_text += "</tr>";
+            for (let i = 0; i < this.mayTinh.length; i++) {
+                table_text += "<tr>";
+                table_text += `<td>${this.mayTinh[i].getMa()}</td>`;
+                table_text += `<td>${this.mayTinh[i].getTen()}</td>`;
+                table_text += `<td>${this.mayTinh[i].getHSX()}</td>`;
+                table_text += `<td>${this.mayTinh[i].getGiaBan()}</td>`;
+                table_text += "</tr>";
+            }
+            table_text += "</table>";
+            document.getElementById("result_list").innerHTML = table_text;
+            this.bangThem();
+        }
+
+        bangThem() {
+            let createForm = '<form>';
+            createForm += `<label for="ma">Mã : </label>`;
+            createForm += `<input id="ma" type="text" placeholder="Nhap Ma" ">`;
+            createForm += `<label for="ten">Ten : </label>`;
+            createForm += `<input id="ten" type="text" placeholder="Nhap Ten" ">`;
+            createForm += `<label for="hang">Hãng Sản Xuất : </label>`;
+            createForm += `<input id="hang" type="text" placeholder="Nhap Hang San Xuat">`;
+            createForm += `<label for="giaBan">Giá Bán : </label>`;
+            createForm += `<input id="giaBan" type="number" placeholder="Gia Ban">`;
+            createForm += `<button id="btn-add"   type="button" onclick="quanLy.themMayTinh()" >Thêm mới</button>`;
+            createForm += `</form>`
+            document.getElementById("result_input").innerHTML = createForm;
+            document.getElementById("ma").value = "";
+            document.getElementById("ten").value = "";
+            document.getElementById("hang").value = "";
+            document.getElementById("giaBan").value = "";
+        }
+
+
+        sapXep() {
+            let arr = [...this.mayTinh];
+            for (let i = 0; i < arr.length; i++) {
+                let minIndex = i;
+                for (let j = i + 1; j < arr.length; j++) {
+                    if (arr[j].getGiaBan() < arr[minIndex].getGiaBan()) {
+                        minIndex = j;
+                    }
+                    if (minIndex !== i) {
+                        let temp = arr[i];
+                        arr[i] = arr[minIndex];
+                        arr[minIndex] = temp;
+                    }
+                }
+            }
+            3
+            console.log(arr);
+
+            let table_text = "<table>";
+            table_text += "<tr>";
+            table_text += "<th>Mã</th>";
+            table_text += "<th>Tên Máy</th>";
+            table_text += "<th>Hãng Sản Xuất</th>";
+            table_text += "<th>Giá Bán</th>";
+            table_text += "</tr>";
+            for (let i = 0; i < arr.length; i++) {
+                table_text += "<tr>";
+                table_text += `<td>${arr[i].getMa()}</td>`;
+                table_text += `<td>${arr[i].getTen()}</td>`;
+                table_text += `<td>${arr[i].getHSX()}</td>`;
+                table_text += `<td>${arr[i].getGiaBan()}</td>`;
+                table_text += "</tr>";
+            }
+            table_text += "</table>";
+            document.getElementById("result_list").innerHTML = table_text;
+            this.bangThem();
+            return arr;
+        }
+    }
+
+    let quanLy = new QuanLyMayTinh();
+    quanLy.listMayTinh();
+
+</script>
+</body>
+</html>

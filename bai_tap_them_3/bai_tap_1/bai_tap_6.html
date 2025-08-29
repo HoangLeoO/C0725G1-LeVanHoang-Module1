@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = +prompt("a :");
+    let b = +prompt("b :");
+    let UCLN;
+    if (a > b || a === b) {
+        for (let i = 1; i <= a; i++) {
+            if (a % i === 0 && b % i === 0) {
+                UCLN = i;
+            }
+        }
+    } else {
+        for (let i = 1; i <= b; i++) {
+            if (a % i === 0 && b % i === 0) {
+                UCLN = i;
+            }
+        }
+    }
+    let BCNN = 1;
+    while (!(BCNN % a === 0 && BCNN % b === 0)) {
+        BCNN++;
+    }
+
+
+    alert(UCLN + "-" + BCNN);
+
+</script>
+</body>
+</html>

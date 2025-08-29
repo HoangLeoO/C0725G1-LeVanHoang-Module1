@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let size;
+    do {
+        size = +prompt("Độ dài của mảng :  ")
+    } while (size <= 0 || size > 50)
+    let numbers = new Array(size);
+    let i = 0;
+    do {
+        numbers[i] = +prompt(" Nhập số nguyên thứ : " + [i + 1]);
+        i++;
+    } while (i < size);
+    alert(numbers);
+
+    let sum = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        if (isPrim(i)) {
+            sum += numbers[i];
+        }
+
+    }
+    alert(sum);
+
+    function isPrim(num) {
+        let check = true;
+        if (num >= 2) {
+            for (let i = 2; i < num; i++) {
+                if (num % 2 === 0) {
+                    check = false;
+                    break;
+                }
+            }
+        } else {
+            check = false;
+        }
+        return check;
+    }
+</script>
+</body>
+</html>

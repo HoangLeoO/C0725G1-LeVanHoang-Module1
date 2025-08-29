@@ -6,7 +6,10 @@
 </head>
 <body>
 <script>
-    let size = +prompt("Độ dài của mảng :  ")
+    let size;
+    do {
+        size = +prompt("Độ dài của mảng :  ")
+    }while ( size < 0)
     let numbers = new Array(size);
     let i = 0;
     do {

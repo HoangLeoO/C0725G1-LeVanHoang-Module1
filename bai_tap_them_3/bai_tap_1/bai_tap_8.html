@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let strings = prompt();
+    let arr = [];
+    let word = "";
+    for (let i = 0; i < strings.length; i++) {
+        if (strings.at(i) !== " ") {
+            word += strings.at(i);
+        } else {
+            if (word.length > 0) {
+                arr.push(word);
+                word = "";
+            }
+        }
+    }
+    if (strings.at(strings.length - 1) !== " ") {
+        arr.push(word);
+    }
+
+    for (let i = 0; i < arr.length; i++) {
+        document.writeln(arr[i] + "<br>");
+    }
+    // let count = 0;
+    // for (let value of arr) {
+    //     if (arr[0] === value) {
+    //         count++;
+    //     }
+    // }
+    let words = [];
+    let count = [];
+    let index = 0;
+    for (let i = 0 ; i < arr.length ; i++) {
+        if (!(words.includes(arr[i]))){
+            words[index] = arr[i];
+            count[index] = 1 ;
+            index++;
+        }else {
+            count[words.indexOf(arr[i])]+=1;
+        }
+    }
+    document.write("<h3>Bảng tần số từ:</h3>");
+    for (let i = 0; i < words.length; i++) {
+        document.write(words[i] + " : " + count[i] + "<br>");
+    }
+</script>
+</body>
+</html>
