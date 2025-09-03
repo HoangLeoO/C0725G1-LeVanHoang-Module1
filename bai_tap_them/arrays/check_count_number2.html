@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num;
+    do {
+        num = +prompt();
+        if (!checkNum(num)) {
+            alert("Nhập số có 4 chữ số !!!")
+        }
+    } while (!checkNum(num));
+    alert(findMaxNumber(num));
+
+
+    function checkNum(num) {
+        let arr = String(num).split("");
+        console.log(arr);
+        if (arr.length === 4) {
+            for (let i = 0; i < arr.length; i++) {
+                if (isNaN(Number(arr[i]))) {
+                    return false;
+                }
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function findMaxNumber(num) {
+        let string = String(num);
+        let maxNum = 0;
+
+        // Xoá lần lượt từng chữ số
+        for (let i = 0; i < 4; i++) {
+            let newNum = parseInt(string.slice(0, i) + string.slice(i + 1));
+            if (newNum > maxNum) {
+                maxNum = newNum;
+            }
+        }
+        return maxNum;
+
+    }
+</script>
+</body>
+</html>

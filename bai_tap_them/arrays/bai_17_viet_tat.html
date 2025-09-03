@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt();
+
+    function checkString(str) {
+        let arrStr = str.trim().split(/\s+/);
+        if (arrStr.length === 1) {
+            return arrStr.join("");
+        } else {
+            let words = "";
+            for (let i = 0; i < arrStr.length; i++) {
+                words += arrStr[i][0].toUpperCase();
+            }
+            return words;
+        }
+
+    }
+
+    alert(checkString(str));
+
+
+</script>
+</body>
+</html>

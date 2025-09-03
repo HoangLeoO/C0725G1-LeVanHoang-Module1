@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function checkString(str) {
+        // Tập hợp các nguyên âm
+        const vowels = "aeiou";
+        // Đổi về chữ thường để so sánh
+        str = str.toLowerCase();
+        // Dùng Set để loại bỏ trùng lặp
+        let result = new Set();
+
+        for (let char of str) {
+            if (vowels.includes(char)) {
+                result.add(char);
+            }
+        }
+
+        return Array.from(result); // chuyển Set về mảng
+    }
+
+    console.log(checkString("hello"));          // ["e", "o"]
+    console.log(checkString("Codegym DaNang A"));// ["o", "e", "a"]
+</script>
+</body>
+</html>

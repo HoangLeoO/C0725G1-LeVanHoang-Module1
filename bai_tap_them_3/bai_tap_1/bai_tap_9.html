@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let sizeArr;
+    do {
+        sizeArr = +prompt();
+    } while (sizeArr <= 0)
+    let numbers = new Array(sizeArr);
+    for (let i = 0; i < numbers.length; i++) {
+        numbers[i] = +prompt("Nhap so thu " + (i + 1));
+    }
+    alert(numbers);
+    alert("Tong so duong le: " + sumArrSoLe(numbers));
+    alert("Tong so nguyen to o vi tri chan: " + sumArrPrime(numbers));
+    let k = +prompt("Nhap phan tu k can tim:");
+    alert("Vi tri cua k: " + indexK(k, numbers));
+    alert("Sap xep mang tu nho den lon"+sortArr(numbers));
+
+
+    function sumArrSoLe(arr) {
+        let sumArr = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 !== 0) {
+                sumArr += arr[i];
+            }
+        }
+        return sumArr;
+    }
+
+    function sumArrPrime(arr) {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (i % 2 === 0 && isPrime(arr[i])) {
+                sum += arr[i];
+            }
+        }
+        return sum ;
+    }
+
+    function isPrime(num) {
+        if (num < 2){
+            return  false;
+        }
+        for (let i = 2; i < num; i++) {
+            if (num % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function indexK(k, arr) {
+        let index = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (k === arr[i]) {
+                index.push(i);
+            }
+        }
+        return index;
+    }
+
+    function sortArr(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 1; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    let temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+</script>
+</body>
+</html>

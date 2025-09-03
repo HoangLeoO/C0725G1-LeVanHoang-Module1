@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function sortByFrequency(arr) {
+        let freqArr = [];
+
+        // đếm tần số
+        for (let i = 0; i < arr.length; i++) {
+            let found = false;
+            for (let j = 0; j < freqArr.length; j++) {
+                if (freqArr[j][0] === arr[i]) {
+                    freqArr[j][1]++;
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                freqArr.push([arr[i], 1]);
+            }
+        }
+
+        // sắp xếp theo tần số tăng dần
+        for (let i = 0; i < freqArr.length - 1; i++) {
+            for (let j = i + 1; j < freqArr.length; j++) {
+                if (freqArr[i][1] > freqArr[j][1]) {
+                    let temp = freqArr[i];
+                    freqArr[i] = freqArr[j];
+                    freqArr[j] = temp;
+                }
+            }
+        }
+
+        // lấy ra các giá trị
+        let result = [];
+        for (let i = 0; i < freqArr.length; i++) {
+            result.push(freqArr[i][0]);
+        }
+
+        return result;
+    }
+
+    console.log(sortByFrequency([4, 6, 2, 6, 4, 4, 3]));
+    // [2, 3, 6, 4]
+
+</script>
+</body>
+</html>

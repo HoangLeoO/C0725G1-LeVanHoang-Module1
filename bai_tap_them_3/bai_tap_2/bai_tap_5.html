@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu Order</title>
+</head>
+<body>
+<script>
+
+    let drinks = ["Cafe", "Cam vắt", "Nước ép cà rốt", "Nước ép cà chua", "Nước lọc", "Nước dừa"];
+    let prices = [15000, 20000, 25000, 25000, 10000, 18000];
+    let quantities = [0, 0, 0, 0, 0, 0];
+
+    let total = 0;
+    let choice;
+
+    do {
+
+        let menu = "===== MENU =====\n";
+        for (let i = 0; i < drinks.length; i++) {
+            menu += (i + 1) + ". " + drinks[i] + " --- " + prices[i] + " VND";
+            if (quantities[i] > 0) {
+                menu += " (Đã chọn: " + quantities[i] + ")";
+            }
+            menu += "\n";
+        }
+        menu += "7. Thoát\n";
+        menu += "-----------------------------\n";
+        menu += "Mời bạn chọn thức uống (1-7): ";
+
+        choice = +prompt(menu);
+
+        if (choice >= 1 && choice <= 6) {
+            let index = choice - 1;
+            quantities[index]++;
+            total += prices[index];
+
+
+            let selectedList = "===== ĐÃ CHỌN =====\n";
+            for (let i = 0; i < drinks.length; i++) {
+                if (quantities[i] > 0) {
+                    selectedList += drinks[i] + " x " + quantities[i] + " = " + (quantities[i] * prices[i]) + " VND\n";
+                }
+            }
+            selectedList += "-----------------------------\n";
+            selectedList += "TỔNG TIỀN: " + total + " VND";
+            alert(selectedList);
+
+        } else if (choice !== 7) {
+            alert("Lựa chọn không hợp lệ, vui lòng chọn lại!");
+        }
+
+    } while (choice !== 7);
+
+    let bill = "===== HÓA ĐƠN =====\n";
+    for (let i = 0; i < drinks.length; i++) {
+        if (quantities[i] > 0) {
+            bill += drinks[i] + " x " + quantities[i] + " = " +
+                (quantities[i] * prices[i]) + " VND\n";
+        }
+    }
+    bill += "-----------------------------\n";
+    bill += "TỔNG TIỀN: " + total + " VND\n";
+    alert(bill);
+</script>
+</body>
+</html>

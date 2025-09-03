@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let sizeArr;
+    do {
+        sizeArr = +prompt();
+    } while (sizeArr <= 0)
+    let numbers = new Array(sizeArr);
+    for (let i = 0; i < numbers.length; i++) {
+        numbers[i] = +prompt("Nhap so thu " + (i + 1));
+    }
+    alert(numbers);
+
+    function prefixSums(arr) {
+        // let b = [];
+        // for (let i = 0; i < arr.length; i++) {
+        //     let sum = 0;
+        //     for (let j = 0; j <= i; j++) {
+        //         sum += arr[j];
+        //     }
+        //     b.push(sum);
+        // }
+        // return b;
+
+        let b = [];
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            sum += arr[i];
+            b.push(sum);
+        }
+        return b;
+    }
+</script>
+</body>
+</html>

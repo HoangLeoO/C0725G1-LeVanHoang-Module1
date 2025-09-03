@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function sumDivArr(arr){
+        let sumArr = [];
+        for (let i = 0 ; i < arr.length ; i++){
+            let sum = 0;
+            for (let j = 1 ; j <= arr[i] ; j++){
+                if (arr[i]%j === 0){
+                    sum += j;
+                }
+            }
+            sumArr.push(sum);
+        }
+        return sumArr;
+    }
+    alert(sumDivArr([2,4,7,9,1]));
+</script>
+</body>
+</html>

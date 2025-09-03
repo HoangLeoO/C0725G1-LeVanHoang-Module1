@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let size;
+    do {
+        size = +prompt();
+    } while (size <= 0);
+    let arr = [];
+    for (let i = 0; i < size; i++) {
+        arr.push(+prompt());
+    }
+    alert(arr);
+
+    function checkArrAllValueIsPrime(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if (!isPrime(arr[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function isPrime(num) {
+        if (num < 2) {
+            return false;
+        }
+        for (let i = 2; i <= num; i++) {
+            if (num % 2 === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    if (checkArrAllValueIsPrime(arr)) {
+        alert("Tất cả phần tử trong mảng đều là số nguyên tố.");
+    } else {
+        alert("Mảng có chứa số không phải là nguyên tố.");
+    }
+</script>
+</body>
+</html>

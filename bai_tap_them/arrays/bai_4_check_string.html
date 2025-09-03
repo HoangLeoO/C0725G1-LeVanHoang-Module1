@@ -2,42 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Check String</title>
 </head>
 <body>
 <script>
+    let text_string = prompt("Nhập chuỗi test: ");
 
-
-    let text_string = prompt("Nhập chuỗi test : ");
-
-    function checkString(string) {
-        let array_char = [];
-        for (let i = 0; i < string.length; i++) {
-            if (65 <= string.charCodeAt(i) && string.charCodeAt(i) <= 90 || 97 <= string.charCodeAt(i) && string.charCodeAt(i) <= 122) {
-                array_char[i] = string.charCodeAt(i);
+    function checkString(s) {
+        let upper = 0;
+        let lower = 0;
+        for (let i = 0; i < s.length; i++) {
+            let code = s.charCodeAt(i);
+            if (code >= 65 && code <= 90) {
+                upper++;
+            } else if (code >= 97 && code <= 122) {
+                lower++;
             } else {
-                alert(" KHÔNG CHỨA KÝ TỰ ĐẶT BIỆT HOẶC SỐ ! ");
-                break;
+                return "KHÔNG ĐƯỢC CHỨA KÝ TỰ ĐẶC BIỆT HOẶC SỐ!";
             }
         }
-        let count1 = 0;
-        let count2 = 0;
-        for (let i = 0; i < array_char.length; i++) {
-            if (65 <= array_char[i] && array_char[i] <= 90) {
-                count1++;
-            }
-            if (97 <= array_char[i] && array_char[i] <= 122) {
-                count2++;
-            }
-        }
-        if (count1 === count2) {
-            alert("OK!!");
-        } else {
-            alert("NO!!");
-        }
+        return upper === lower;
     }
 
-    checkString(text_string);
+    if (checkString(text_string)) {
+        alert("OK!! (số chữ hoa bằng số chữ thường)");
+    } else {
+        alert("NO!! (không cân bằng)");
+    }
+
+
 </script>
 </body>
 </html>

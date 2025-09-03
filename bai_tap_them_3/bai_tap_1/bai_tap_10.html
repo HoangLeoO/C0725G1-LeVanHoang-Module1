@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    let sizeRow;
+    let sizeCol;
+    do {
+        sizeRow = +prompt("Nhap size hang : ");
+        sizeCol = +prompt("Nhap size cot : ");
+    } while (sizeRow <= 0 || sizeCol <= 0);
+    let matrix = new Array(sizeRow);
+    for (let i = 0; i < sizeRow; i++) {
+        matrix[i] = new Array(sizeCol); // khởi tạo mỗi hàng có sizeCol phần tử
+    }
+    for (let i = 0; i < sizeRow; i++) {
+        for (let j = 0; j < sizeCol; j++) {
+            matrix[i][j] = Math.floor(Math.random() * 100) + 1;
+        }
+    }
+    console.log(matrix);
+
+    function boiSo3row1(matrix) {
+        let tich = 1;
+        let coSo = false;
+        for (let j = 0; j < matrix[0].length; j++) {
+            if (matrix[0][j] % 3 === 0) {
+                tich *= matrix[0][j];
+                coSo = true;
+            }
+        }
+        return coSo ? tich : 0;
+    }
+
+    function maxRow(matrix) {
+        let x = [];
+        for (let i = 0; i < matrix.length; i++) {
+            let maxRow = matrix[i][0];
+            for (let j = 1; j < matrix[i].length; j++) {
+                if (matrix[i][j] > maxRow) {
+                    maxRow = matrix[i][j];
+                }
+            }
+            x.push(maxRow);
+        }
+        return x;
+    }
+
+    console.log("Tích bội số 3 ở dòng đầu:", boiSo3row1(matrix));
+    let X = maxRow(matrix);
+    console.log("Mảng X:", X);
+    X.shift();
+    console.log("Mảng X sau khi xoá phần tử đầu:", X);
+
+</script>
+</body>
+</html>

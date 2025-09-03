@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function changeBinary(num) {
+        if (num === 0) return "0"; // Trường hợp đặc biệt
+        let binary = "";
+        while (num > 0) {
+            binary = (num % 2) + binary; // Lấy phần dư chia 2 và ghép vào trước
+            num = Math.floor(num / 2);   // Chia nguyên cho 2
+        }
+        return binary;
+    }
+
+    // Ví dụ:
+    console.log(changeBinary(2));  // "10"
+    console.log(changeBinary(10)); // "1010"
+
+</script>
+</body>
+</html>

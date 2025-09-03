@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm Max và Min trong ma trận</title>
+</head>
+<body>
+<script>
+    let m = +prompt("Nhập số dòng m: ");
+    let n = +prompt("Nhập số cột n: ");
+
+    let matrix = [];
+
+    for (let i = 0; i < m; i++) {
+        matrix[i] = [];
+        for (let j = 0; j < n; j++) {
+            matrix[i][j] = Math.floor(Math.random() * 100) + 1;
+        }
+    }
+
+
+    function findMinMax(matrix) {
+        let min = matrix[0][0];
+        let max = matrix[0][0];
+
+        for (let i = 0; i < matrix.length; i++) {
+            for (let j = 0; j < matrix[i].length; j++) {
+                if (matrix[i][j] < min) {
+                    min = matrix[i][j];
+                }
+                if (matrix[i][j] > max) {
+                    max = matrix[i][j];
+                }
+            }
+        }
+        return {min, max};
+    }
+
+    let result = findMinMax(matrix);
+
+
+    document.write("<h3>Ma trận:</h3>");
+    for (let i = 0; i < m; i++) {
+        document.write(matrix[i].join(" ") + "<br>");
+    }
+
+
+    document.write("<h3>Giá trị nhỏ nhất: " + result.min + "</h3>");
+    document.write("<h3>Giá trị lớn nhất: " + result.max + "</h3>");
+</script>
+</body>
+</html>

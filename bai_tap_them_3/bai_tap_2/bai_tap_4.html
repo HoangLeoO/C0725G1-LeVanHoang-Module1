@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = 1232131123;
+    alert(inputString(str));
+
+    function inputString(str) {
+        str = String(str);
+        let string = "";
+        for (let i = 0; i < str.length; i++) {
+            switch (str[i]) {
+                case "1":
+                    string += "Một ";
+                    break;
+                case "2":
+                    string += "Hai ";
+                    break;
+                case "3":
+                    string += "Ba ";
+                    break;
+                case "4":
+                    string += "Bốn ";
+                    break;
+                case "5":
+                    string += "Năm ";
+                    break;
+                case "6":
+                    string += "Sáu ";
+                    break;
+                case "7":
+                    string += "Bảy ";
+                    break;
+                case "8":
+                    string += "Tám ";
+                    break;
+                case "9":
+                    string += "Chín ";
+                    break;
+                case "0":
+                    string += "Không ";
+                    break;
+            }
+        }
+        return string.trim();
+    }
+</script>
+</body>
+</html>

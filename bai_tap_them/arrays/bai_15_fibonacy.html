@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let size;
+    do {
+        size = +prompt("Độ dài của mảng :  ")
+    } while (size < 0)
+    let arr = new Array(size);
+    let i = 0;
+    do {
+        arr[i] = +prompt(" Nhập số nguyên thứ : " + [i + 1]);
+        i++;
+    } while (i < size);
+
+    function isArrFB(arr) {
+        arr.sort((a, b) => {
+            return a - b
+        });
+        let fb = fibonacci(arr[arr.length - 1]);
+        for (let i = 0; i < arr.length; i++) {
+            if (!fb.includes(arr[i])) {
+                return "NO";
+            }
+        }
+        return "OK";
+    }
+
+    alert(isArrFB(arr));
+
+    // in ra day  fibonacci đến giá trị lớn nhất
+    function fibonacci(maxValue) {
+        let f = [0, 1];
+        while (f[f.length - 1] < maxValue + 1) {
+            f.push(f[f.length - 1] + f[f.length - 2]);
+        }
+        return f;
+    }
+
+    // function fibonacci(n) {
+    //     let arr = [];
+    //     let a = 0;
+    //     let b = 1;
+    //     let next;
+    //     for (let i = 0; i < n; i++) {
+    //         arr.push(a);
+    //         next = a + b;
+    //         a = b;
+    //         b = next;
+    //     }
+    //     return arr;
+    // }
+</script>
+</body>
+</html>

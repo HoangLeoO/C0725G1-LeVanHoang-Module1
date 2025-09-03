@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkDoiXung(arr){
+        for (let i = 0 ; i < Math.floor((arr.length)/2) ; i++){
+            console.log(arr[i] + "---" + arr[(Math.floor(arr.length)-1-i)] );
+            if (arr[i] !== arr[(Math.floor(arr.length)-1)-i]){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    console.log(checkDoiXung([1,2,3,2,1]));
+    console.log(checkDoiXung([1,2,2,1]));
+    console.log(checkDoiXung([1,2,32,321,123,2]));
+</script>
+</body>
+</html>

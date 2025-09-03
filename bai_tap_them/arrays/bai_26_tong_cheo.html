@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function sumArrDuongCheoMatrix(matrix) {
+        let arr1 = [];
+        let arr2 = [];
+        let n = 0;
+        for (let i = 0; i < matrix.length; i++) {
+            arr1.push(matrix[i][i]);
+            arr2.push(matrix[i][(matrix.length - 1) - n]);
+            n++;
+        }
+        return arr1 + "-" + arr2;
+    }
+
+    let matrix = [
+        [1, 2, 3, 4],
+        [5, 1, 3, 3],
+        [2, 5, 2, 3],
+        [2, 3, 5, 1]
+    ]
+    alert(sumArrDuongCheoMatrix(matrix));
+</script>
+</body>
+</html>
