@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numbers = [1, 5, 6, 23, 8, 47, 10, 3];
+    alert(arrPrime(numbers));
+
+    function arrPrime(numbers) {
+        let result = [];
+        for (let i = 0; i < numbers.length; i++) {
+            if (isPrime(numbers[i])) {
+                result.push(numbers[i]);
+            }
+        }
+        return result.sort((a, b) => {
+            return a - b;
+        });
+    }
+
+    function isPrime(num) {
+        let check = true;
+        if (num >= 2) {
+            for (let i = 2; i < num; i++) {
+                if (num % 2 === 0) {
+                    check = false;
+                    break;
+                }
+            }
+        } else {
+            check = false;
+        }
+        return check;
+    }
+</script>
+</body>
+</html>

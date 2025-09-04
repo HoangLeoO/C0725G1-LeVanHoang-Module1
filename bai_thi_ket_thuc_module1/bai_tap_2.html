@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let strings = prompt();
+
+    function countToUpp(strings) {
+
+        let countUpp = 0;
+        if (strings !== "") {
+            for (let i = 0; i < strings.length; i++) {
+                if (strings.charCodeAt(i) >= 65 && strings.charCodeAt(i) <= 90) {
+                    countUpp++;
+                }
+            }
+        }
+        if (countUpp !== 0) {
+            return countUpp;
+        } else {
+            return "The Strings is not contain upper char";
+        }
+    }
+
+    alert(countToUpp(strings));
+</script>
+</body>
+</html>

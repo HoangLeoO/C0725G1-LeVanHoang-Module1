@@ -31,68 +31,68 @@
 <div id="result_list"></div>
 
 <script>
-    class MayTinh {
+    class DienThoai {
         constructor(ma, ten, hSX, giaBan) {
-            this._ma = ma;
-            this._ten = ten;
-            this._hSX = hSX;
-            this._giaBan = giaBan;
+            this.ma = ma;
+            this.ten = ten;
+            this.hSX = hSX;
+            this.giaBan = giaBan;
         }
 
         getMa() {
-            return this._ma;
+            return this.ma;
         }
 
         setMa(value) {
-            this._ma = value;
+            this.ma = value;
         }
 
         getTen() {
-            return this._ten;
+            return this.ten;
         }
 
         setTen(value) {
-            this._ten = value;
+            this.ten = value;
         }
 
         getHSX() {
-            return this._hSX;
+            return this.hSX;
         }
 
         setHSX(value) {
-            this._hSX = value;
+            this.hSX = value;
         }
 
         getGiaBan() {
-            return this._giaBan;
+            return this.giaBan;
         }
 
         setGiaBan(value) {
-            this._giaBan = value;
+            this.giaBan = value;
         }
 
         toString() {
-            return this._ma + this._ten + this._hSX + this._giaBan;
+            return this.ma + this.ten + this.hSX + this.giaBan;
         }
     }
 
-    class QuanLyMayTinh {
+    class QuanLyDienThoai {
         constructor() {
-            this.mayTinh = [];
+            this.dienThoai = [];
         }
 
-        themMayTinh() {
+        themDienThoai() {
             let ma = document.getElementById("ma").value;
             let ten = document.getElementById("ten").value;
             let hSX = document.getElementById("hang").value;
             let giaBan = document.getElementById("giaBan").value;
             console.log(ma, ten, hSX, parseFloat(giaBan));
-            let mayTinh = new MayTinh(ma, ten, hSX, parseFloat(giaBan));
-            this.mayTinh.push(mayTinh);
-            this.listMayTinh();
+            let dienThoai = new DienThoai(ma, ten, hSX, parseFloat(giaBan));
+            this.dienThoai.push(dienThoai);
+            this.listDienThoai();
         }
 
-        listMayTinh() {
+        listDienThoai() {
             let table_text = "<table>";
             table_text += "<tr>";
             table_text += "<th>Mã</th>";
@@ -100,12 +100,12 @@
             table_text += "<th>Hãng Sản Xuất</th>";
             table_text += "<th>Giá Bán</th>";
             table_text += "</tr>";
-            for (let i = 0; i < this.mayTinh.length; i++) {
+            for (let i = 0; i < this.dienThoai.length; i++) {
                 table_text += "<tr>";
-                table_text += `<td>${this.mayTinh[i].getMa()}</td>`;
-                table_text += `<td>${this.mayTinh[i].getTen()}</td>`;
-                table_text += `<td>${this.mayTinh[i].getHSX()}</td>`;
-                table_text += `<td>${this.mayTinh[i].getGiaBan()}</td>`;
+                table_text += `<td>${this.dienThoai[i].getMa()}</td>`;
+                table_text += `<td>${this.dienThoai[i].getTen()}</td>`;
+                table_text += `<td>${this.dienThoai[i].getHSX()}</td>`;
+                table_text += `<td>${this.dienThoai[i].getGiaBan()}</td>`;
                 table_text += "</tr>";
             }
             table_text += "</table>";
@@ -115,15 +115,15 @@
 
         bangThem() {
             let createForm = '<form>';
-            createForm += `<label for="ma">Mã : </label>`;
+            createForm += `<label for="ma">Mã Điện Thoại : </label>`;
             createForm += `<input id="ma" type="text" placeholder="Nhap Ma" ">`;
-            createForm += `<label for="ten">Ten : </label>`;
+            createForm += `<label for="ten">Tên Điện Thoại : </label>`;
             createForm += `<input id="ten" type="text" placeholder="Nhap Ten" ">`;
             createForm += `<label for="hang">Hãng Sản Xuất : </label>`;
             createForm += `<input id="hang" type="text" placeholder="Nhap Hang San Xuat">`;
             createForm += `<label for="giaBan">Giá Bán : </label>`;
             createForm += `<input id="giaBan" type="number" placeholder="Gia Ban">`;
-            createForm += `<button id="btn-add"   type="button" onclick="quanLy.themMayTinh()" >Thêm mới</button>`;
+            createForm += `<button id="btn-add"   type="button" onclick="quanLy.themDienThoai()" >Thêm mới</button>`;
             createForm += `</form>`
             document.getElementById("result_input").innerHTML = createForm;
             document.getElementById("ma").value = "";
@@ -134,21 +134,22 @@
 
 
         sapXep() {
-            let arr = [...this.mayTinh];
+
+            let arr = [...this.dienThoai];
+            let arr1 = [];
             for (let i = 0; i < arr.length; i++) {
-                let minIndex = i;
-                for (let j = i + 1; j < arr.length; j++) {
-                    if (arr[j].getGiaBan() < arr[minIndex].getGiaBan()) {
-                        minIndex = j;
-                    }
-                    if (minIndex !== i) {
-                        let temp = arr[i];
-                        arr[i] = arr[minIndex];
-                        arr[minIndex] = temp;
-                    }
-                }
+                arr1.push(arr[i].getTen());
             }
+            arr1.sort();
             console.log(arr);
+            console.log(arr1);
+            let arr3 = new Array(arr.length);
+            for (let i = 0; i < arr.length; i++) {
+                let index = arr1.indexOf(arr[i].getTen());
+                arr3[index] = arr[i];
+            }
+            console.log(arr3);
+
 
             let table_text = "<table>";
             table_text += "<tr>";
@@ -157,23 +158,22 @@
             table_text += "<th>Hãng Sản Xuất</th>";
             table_text += "<th>Giá Bán</th>";
             table_text += "</tr>";
-            for (let i = 0; i < arr.length; i++) {
+            for (let i = 0; i < arr3.length; i++) {
                 table_text += "<tr>";
-                table_text += `<td>${arr[i].getMa()}</td>`;
-                table_text += `<td>${arr[i].getTen()}</td>`;
-                table_text += `<td>${arr[i].getHSX()}</td>`;
-                table_text += `<td>${arr[i].getGiaBan()}</td>`;
+                table_text += `<td>${arr3[i].getMa()}</td>`;
+                table_text += `<td>${arr3[i].getTen()}</td>`;
+                table_text += `<td>${arr3[i].getHSX()}</td>`;
+                table_text += `<td>${arr3[i].getGiaBan()}</td>`;
                 table_text += "</tr>";
             }
             table_text += "</table>";
             document.getElementById("result_list").innerHTML = table_text;
-            this.bangThem();
-            return arr;
+
         }
     }
 
-    let quanLy = new QuanLyMayTinh();
-    quanLy.listMayTinh();
+    let quanLy = new QuanLyDienThoai();
+    quanLy.listDienThoai();
 
 </script>
 </body>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let size;
+    do {
+        size = +prompt("Độ dài của mảng :  ")
+    } while (size <= 0 || size > 20)
+    let numbers = new Array(size);
+    let i = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        numbers[i] = +prompt("Nhap so thu " + (i + 1));
+    }
+    alert(numbers);
+    let sumChan = 0;
+    let sumLe = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] % 2 === 0) {
+            sumChan += numbers[i];
+        } else {
+            sumLe += numbers[i];
+        }
+    }
+
+    alert(sumChan - sumLe);
+
+
+</script>
+</body>
+</html>
